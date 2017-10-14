@@ -36,7 +36,7 @@ $(document).ready(function(){
   $(function(){
 
   $("input").expandable({
-    width: 250,
+    width: 600,
     duration: 300,
   });
   });
