@@ -23,13 +23,13 @@
 	
 		<!-- Header
 		========================================== -->
-  		<header class="container">
-  			<div class="row">
-  				<div class="text-center">
-  					<h1>Reel It</h1>
-  				</div>
-  			</div>
-		</header>
+    	<nav class="navbar navbar-default navbar-inverse navbar-static-top">
+      		<div class="container-fluid">
+        		<div class="navbar-header">
+          			<a class="navbar-brand" href="index.html" target="_self"><img class="logo" alt="Reel It" src="assets/images/logo2.png"></a>
+        		</div>
+        	</div>
+        </nav>
 
 		<!-- Main
 		========================================== -->
@@ -41,7 +41,7 @@
 					<div class="panel-body">
 						<form class="form-inline text-center">
 							<div class="form-group" id="searchForm">
-								<input type="text" class="form-control query" id="movieTitle" style="width:300px;" value="Movie or TV Show Title">
+								<input type="text" class="form-control query homepageSearch" id="movieTitle" style="width:300px;" placeholder="Movie or TV Show Title">
 							</div>
 							<a href="ReelIt-TMDB+YT.html" role="button" target="_blank" type="submit" class="btn btn-primary" id="submitButton">Submit</a>
 						</form>
@@ -54,7 +54,7 @@
 		<div class="container" id="movieTable"> 
 			<div class="row">
 				<div class="panel panel-primary">
-					<div class="container" id="movieResults">
+					<div class="container" id="movieGrid">
 					</div>
 				</div>
 			</div>
@@ -96,26 +96,7 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>                 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
-	<script src="jquery.expandable.js"></script>     <!-- Expandable inputs plug-in -->
+	<script src="assets/javascript/jquery.expandable.js"></script>     <!-- Expandable inputs plug-in -->
 	<script src="assets/javascript/api3_combined.js"></script> 
-<!-- 	<script src="youtube_api.js"></script>															
-	<script src="TMDB_api.js"></script>																
-	<script src="firebase.js"></script>	 -->														
-	
-	<!--<script src="assets/javascript/script.js"></script>-->
-	<script src="jquery.expandable.js"></script>
-
-  	<script type="text/javascript">
-
-  	// Placeholder images
-  	var placeholderSVG = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs"><img class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWYwOTFlNTkwYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjA5MWU1OTBhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="></div>'
-  	
-  	// Placeholder loop
-  	for (var i = 0; i < 12; i++) {
-  		$('#movieResults').append(placeholderSVG);
-  	}
-
-  </script>
-
 
 </html>

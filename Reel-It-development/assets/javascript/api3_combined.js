@@ -1,7 +1,19 @@
-// The Movie DB API | JavaScript Code
+$(document).ready(function(){
+
+// index.html Placeholder Image Loop
 // =====================================================================================
 
-$(function(){
+    // Placeholder image SVG
+    var placeholderSVG = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs"><img class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWYwOTFlNTkwYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjA5MWU1OTBhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="></div>'
+    
+    // Placeholder loop
+    for (var i = 0; i < 12; i++) {
+      $('#movieGrid').append(placeholderSVG);
+    }
+
+
+// The Movie DB API | JavaScript Code
+// =====================================================================================
 
 $("#submitButton").on("click", function(event) {
   // event.preventDefault();
@@ -23,156 +35,156 @@ $("#submitButton").on("click", function(event) {
     movieID = respond.results[0].id;
     console.log("ID: " + movieID);
 
-https://api.themoviedb.org/3/movie/157336?api_key={api_key}&append_to_response=videos,images
+  https://api.themoviedb.org/3/movie/157336?api_key={api_key}&append_to_response=videos,images
 
-var setting = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.themoviedb.org/3/movie/"+movieID+"?append_to_response=videos,credits,similar,images,recommendations,keywords,reviews&language=en-US&api_key=e78bedc80954fdbe9d13505b16448776",
-  "method": "GET",
-  "headers": {},
-  "data": "{}"
-}
+  var setting = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.themoviedb.org/3/movie/"+movieID+"?append_to_response=videos,credits,similar,images,recommendations,keywords,reviews&language=en-US&api_key=e78bedc80954fdbe9d13505b16448776",
+    "method": "GET",
+    "headers": {},
+    "data": "{}"
+  }
 
-$.ajax(setting).done(function (response) {
-  console.log(response);
-
-
-// Generate Movie Div
-    var movieDiv = $("<div class='movie'>");
-
-// Movie ID
-    // var movieID = response.results[0].id;
-    console.log("ID: " + movieID);
-
-// Movie URL (through TMDB)
-    var movieURL = settings.url;
-    // console.log("movieURL: " + movieURL);
-
-// Movie Title
-    var title = response.title;
-    // console.log("title: " + title);
-    var movieTitleDisplay = $("<h2>").text(title);
-    $(".movieDivTitle").html(movieTitleDisplay);
-
-// Movie Review/Score
-    var rating = response.vote_average;
-    $(".progress-bar").attr("aria-valuenow", rating);
-    var ratingPercent = (rating * 10);
-    $(".progress-bar").css("width", ratingPercent + "%");
-    $(".movieRating").text(ratingPercent + "%");
-    // $(".movieDivVote").html(movieRatingDisplay);
+  $.ajax(setting).done(function (response) {
+    console.log(response);
 
 
-// Movie Released Date
-    var released = response.release_date;
-    // console.log("released: " + released)
-    var movieDateDisplay = $("<p>").text(released);
-    $(".movieDivRelease").html(movieDateDisplay);
+  // Generate Movie Div
+      var movieDiv = $("<div class='movie'>");
 
-// Link to Stream
-    var movieStream = $("<a>");
-    var movieStreamURL = ("http://www.canistream.it/search/movie/" + encodedMov);
-      movieStream.addClass("btn btn-stream btn-md btn-warning");
-      movieStream.attr("role", "button")
-      movieStream.attr("target", "_blank")
-      movieStream.attr("href", movieStreamURL);
-      movieStream.text("Streaming Here");
-     $(".movieDivStream").html(movieStream);
-   
+  // Movie ID
+      // var movieID = response.results[0].id;
+      console.log("ID: " + movieID);
 
-// Movie Plot
-    var plot = response.overview;
-    var moviePlotDisplay = $("<p>").text(plot);
-    $(".movieDivPlot").html(moviePlotDisplay);
+  // Movie URL (through TMDB)
+      var movieURL = settings.url;
+      // console.log("movieURL: " + movieURL);
 
-// Movie Homepage
-    var movieWebsite = response.homepage;
-    var movieHomepage = $("<a>")
-    movieHomepage.attr("href", movieWebsite);
-    movieHomepage.attr("target", "_blank");
-    movieHomepage.attr("role", "button");
-    movieHomepage.addClass("btn btn-warning btn-md btn-webpage");
-    // console.log(movieHomepage);
-    $(".movieDivHomepage").html(movieHomepage.href);
+  // Movie Title
+      var title = response.title;
+      // console.log("title: " + title);
+      var movieTitleDisplay = $("<h2>").text(title);
+      $(".movieDivTitle").html(movieTitleDisplay);
+
+  // Movie Review/Score
+      var rating = response.vote_average;
+      $(".progress-bar").attr("aria-valuenow", rating);
+      var ratingPercent = (rating * 10);
+      $(".progress-bar").css("width", ratingPercent + "%");
+      $(".movieRating").text(ratingPercent + "%");
+      // $(".movieDivVote").html(movieRatingDisplay);
 
 
- //  Movie Genres
-    var genreList = response.genres;
-    for(var i = 0; i < genreList.length; i++){
-    var movieGenre = $("<a>");
-    var movieGenreID = response.genres[i].id;
-    var movieGenreName = response.genres[i].name;
-    var movieGenreURL = ("https://www.themoviedb.org/genre/" + movieGenreID + "-" + movieGenreName);
-      movieGenre.addClass("btn btn-genre btn-sm btn-primary");
-      movieGenre.attr("role", "button");
-      movieGenre.attr("target", "_blank");
-      movieGenre.attr("href", movieGenreURL);
-      movieGenre.text(movieGenreName);
-     $(".movieDivGenre").append(movieGenre);
-   }; 
+  // Movie Released Date
+      var released = response.release_date;
+      // console.log("released: " + released)
+      var movieDateDisplay = $("<p>").text(released);
+      $(".movieDivRelease").html(movieDateDisplay);
+
+  // Link to Stream
+      var movieStream = $("<a>");
+      var movieStreamURL = ("http://www.canistream.it/search/movie/" + encodedMov);
+        movieStream.addClass("btn btn-stream btn-md btn-warning");
+        movieStream.attr("role", "button")
+        movieStream.attr("target", "_blank")
+        movieStream.attr("href", movieStreamURL);
+        movieStream.text("Streaming Here");
+       $(".movieDivStream").html(movieStream);
+     
+
+  // Movie Plot
+      var plot = response.overview;
+      var moviePlotDisplay = $("<p>").text(plot);
+      $(".movieDivPlot").html(moviePlotDisplay);
+
+  // Movie Homepage
+      var movieWebsite = response.homepage;
+      var movieHomepage = $("<a>")
+      movieHomepage.attr("href", movieWebsite);
+      movieHomepage.attr("target", "_blank");
+      movieHomepage.attr("role", "button");
+      movieHomepage.addClass("btn btn-warning btn-md btn-webpage");
+      // console.log(movieHomepage);
+      $(".movieDivHomepage").html(movieHomepage.href);
 
 
-// Movie Image (poster or backdrop)
-    // var imgURL = "https://image.tmdb.org/t/p/w500/" + response.backdrop_path;
-    var imgURL = "https://image.tmdb.org/t/p/w500/" + response.poster_path;
-    var image = $("<img>").attr("src", imgURL);
-    image.addClass("img-responsive");
-    movieDiv.html(image);
+   //  Movie Genres
+      var genreList = response.genres;
+      for(var i = 0; i < genreList.length; i++){
+      var movieGenre = $("<a>");
+      var movieGenreID = response.genres[i].id;
+      var movieGenreName = response.genres[i].name;
+      var movieGenreURL = ("https://www.themoviedb.org/genre/" + movieGenreID + "-" + movieGenreName);
+        movieGenre.addClass("btn btn-genre btn-sm btn-primary");
+        movieGenre.attr("role", "button");
+        movieGenre.attr("target", "_blank");
+        movieGenre.attr("href", movieGenreURL);
+        movieGenre.text(movieGenreName);
+       $(".movieDivGenre").append(movieGenre);
+     }; 
 
 
- //  Movie Reccomendations
-    var movieRecList = response.recommendations.results;
-    for(var i = 0; i < movieRecList.length; i++){
-    var movieRec = $("<a>");
-    var movieRecID = response.recommendations.results[i].id;
-    var movieRecTitle = response.recommendations.results[i].title;
-    var movieRecURL = ("https://www.themoviedb.org/movie/" + movieRecID);
-    var movieRecStream = ("https://www.fan.tv/movies/" + movieRecID);
-      movieRec.addClass("btn btn-recom btn-sm btn-default");
-      movieRec.attr("role", "button")
-      movieRec.attr("target", "_blank")
-      movieRec.attr("href", movieRecURL);
-      movieRec.text(movieRecTitle);
-     $(".movieDivRecs").append(movieRec);
-   }; 
+  // Movie Image (poster or backdrop)
+      // var imgURL = "https://image.tmdb.org/t/p/w500/" + response.backdrop_path;
+      var imgURL = "https://image.tmdb.org/t/p/w500/" + response.poster_path;
+      var image = $("<img>").attr("src", imgURL);
+      image.addClass("img-responsive");
+      movieDiv.html(image);
 
-// Cast
-    var castMainList = response.credits.cast;
-    console.log("Cast arr length: " + castMainList.length);
-    var castTrim = (castMainList.length * 0) + 4;
-    console.log("Cast trim: " + castTrim);
-    
-    for(var j = 0; j < 4; j++){
-      var castDiv = $("<div>");
-      castDiv.addClass("castDiv col-xs-6 col-md-3 text-center");
-      cast_idj = $(this).val(response.credits.cast[j]);
-      // castDiv.attr("data-name",response.credits.cast[j])
-      var headshotURL = "https://image.tmdb.org/t/p/w185/" + response.credits.cast[j].profile_path;
-      var headshot = $("<img>").attr("src", headshotURL);
-      headshot.addClass("img-responsive");
-      var thumbnailDisplay = $("<div class='thumbnail'>").html(headshot);
 
-      var actorName = response.credits.cast[j].name;
-      var characterName = response.credits.cast[j].character;
-      var actorCharacterDisplay = $("<h6 class='actorCharacter'>").text("Character: " + characterName);
-      var actorNameDisplay = $("<h4 class='actorName'>").text(actorName);
+   //  Movie Reccomendations
+      var movieRecList = response.recommendations.results;
+      for(var i = 0; i < movieRecList.length; i++){
+      var movieRec = $("<a>");
+      var movieRecID = response.recommendations.results[i].id;
+      var movieRecTitle = response.recommendations.results[i].title;
+      var movieRecURL = ("https://www.themoviedb.org/movie/" + movieRecID);
+      var movieRecStream = ("https://www.fan.tv/movies/" + movieRecID);
+        movieRec.addClass("btn btn-recom btn-sm btn-default");
+        movieRec.attr("role", "button")
+        movieRec.attr("target", "_blank")
+        movieRec.attr("href", movieRecURL);
+        movieRec.text(movieRecTitle);
+       $(".movieDivRecs").append(movieRec);
+     }; 
 
-      var actorInfo = $("<a>");
-      var actorID = response.credits.cast[j].id;
-      var actorURL = ("https://www.themoviedb.org/person/" + actorID);
-        actorInfo.addClass("btn btn-recom btn-xs btn-default");
-        actorInfo.attr("role", "button");
-        actorInfo.attr("target", "_blank");
-        actorInfo.attr("href", actorURL);
-        actorInfo.text("More"); 
+  // Cast
+      var castMainList = response.credits.cast;
+      console.log("Cast arr length: " + castMainList.length);
+      var castTrim = (castMainList.length * 0) + 4;
+      console.log("Cast trim: " + castTrim);
       
-      var captionDisplay = $("<div class='caption'>").html(actorNameDisplay).append(actorCharacterDisplay).append(actorInfo);
-      (thumbnailDisplay).append(captionDisplay);
+      for(var j = 0; j < 4; j++){
+        var castDiv = $("<div>");
+        castDiv.addClass("castDiv col-xs-6 col-md-3 text-center");
+        cast_idj = $(this).val(response.credits.cast[j]);
+        // castDiv.attr("data-name",response.credits.cast[j])
+        var headshotURL = "https://image.tmdb.org/t/p/w185/" + response.credits.cast[j].profile_path;
+        var headshot = $("<img>").attr("src", headshotURL);
+        headshot.addClass("img-responsive");
+        var thumbnailDisplay = $("<div class='thumbnail'>").html(headshot);
 
-      (castDiv).html(thumbnailDisplay)
-      // .append(captionDisplay);
-      $(".castMain").append(castDiv);
+        var actorName = response.credits.cast[j].name;
+        var characterName = response.credits.cast[j].character;
+        var actorCharacterDisplay = $("<h6 class='actorCharacter'>").text("Character: " + characterName);
+        var actorNameDisplay = $("<h4 class='actorName'>").text(actorName);
+
+        var actorInfo = $("<a>");
+        var actorID = response.credits.cast[j].id;
+        var actorURL = ("https://www.themoviedb.org/person/" + actorID);
+          actorInfo.addClass("btn btn-recom btn-xs btn-default");
+          actorInfo.attr("role", "button");
+          actorInfo.attr("target", "_blank");
+          actorInfo.attr("href", actorURL);
+          actorInfo.text("More"); 
+        
+        var captionDisplay = $("<div class='caption'>").html(actorNameDisplay).append(actorCharacterDisplay).append(actorInfo);
+        (thumbnailDisplay).append(captionDisplay);
+
+        (castDiv).html(thumbnailDisplay)
+        // .append(captionDisplay);
+        $(".castMain").append(castDiv);
       
 
 
@@ -184,10 +196,9 @@ $.ajax(setting).done(function (response) {
 
 });
 });
-$(document).ready(function(){
 
 
-$(function(){
+
   $("#submitButton").on("click", (function(){
   // $('#search-form').submit(function(event){ // when the user clicks submit....
     event.preventDefault(); // prevent the form from submitting
@@ -195,7 +206,7 @@ $(function(){
     getRequest(searchTerm); //call the function "getRequest" and pass it the search term
   // }); 
 }));
-});
+
 
 function getRequest(searchTerm){
   var userQuery = searchTerm;
@@ -232,18 +243,13 @@ function showResults(results){ //shows the results to the user
   });
   $('#popular').html(htmlPopular); // display each of those paragraphs on the page
 }
-});
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // YouTube API | JavaScript Code
 // =====================================================================================
 
-
-$(document).ready(function(){
-
-
-$(function(){
   $("#submitButton").on("click", (function(){
   // $('#search-form').submit(function(event){ // when the user clicks submit....
     event.preventDefault(); // prevent the form from submitting
@@ -253,7 +259,7 @@ $(function(){
   
   }));
 
-});
+
 
 function getRequest(searchTerm){
   var userQuery = searchTerm + "trailer";
@@ -291,15 +297,13 @@ function showResults(results){ //shows the results to the user
   });
   $('#trailers').html(htmlTrailers); // display each of those paragraphs on the page
 }
-});
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-$(document).ready(function(){
 
 
-$(function(){
   $("#submitButton").on("click", (function(){
   // $('#search-form').submit(function(event){ // when the user clicks submit....
     event.preventDefault(); // prevent the form from submitting
@@ -307,7 +311,7 @@ $(function(){
     getRequest(searchTerm); //call the function "getRequest" and pass it the search term
   // });
 }));
-});
+
 
 function getRequest(searchTerm){
   var userQuery = searchTerm + "review";
@@ -347,19 +351,16 @@ function showResults(results){ //shows the results to the user
 }
 
 $("<img>").addClass("img img-responsive");
-});
+
 
 
 //-----------------------------------------------------------
 //-----------------Begin ITUNES movie search api ------------
 //-----------------------------------------------------------
 
-  $(document).ready(function() {
     var searchTerm = "";
     var queryURL = "";
     var requestData = "";
-
-    
 
 
   $('#submitButton').on('click', function(event) {
@@ -537,8 +538,17 @@ $("<img>").addClass("img img-responsive");
            }
                
 
-        // end of ajax call
-       });
+// Expandable Form
+// =====================================================================================
+
+  // Expandable form
+  // $("input").expandable({
+  //   width: 600,
+  //   duration: 300,
+  // });
+
+// Firebase | JavaScript Code
+// =====================================================================================
 
   // Setup Variables 
   // =====================================================================================
@@ -567,18 +577,6 @@ $("<img>").addClass("img img-responsive");
 
   // Main Processes 
   // =====================================================================================
-
-
-  // Expandable form on index.html
-  $(function(){
-
-  $("input").expandable({
-    width: 600,
-    duration: 300,
-  });
-  });
-
-  // Firebase code                      
 
   // Firebase watcher + initial loader 
       database.ref().on("child_added", function(childSnapshot) {
