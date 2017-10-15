@@ -77,9 +77,9 @@ $("#submitButton").on("click", function(event) {
 
 
   // Movie Released Date
-      var released = response.release_date;
-      // console.log("released: " + released)
-      var movieDateDisplay = $("<p>").text(released);
+      var released = moment(response.release_date, 'YYYY-MM-DD');
+      var convertedReleased = released.format('MMMM DD YYYY')
+      var movieDateDisplay = $("<p>").text(convertedReleased);
       $(".movieDivRelease").html(movieDateDisplay);
 
   // Link to Stream
@@ -185,17 +185,17 @@ $("#submitButton").on("click", function(event) {
         (castDiv).html(thumbnailDisplay)
         // .append(captionDisplay);
         $(".castMain").append(castDiv);
-      
+      };
 
-
-};
-
- // Prepend Movie
+  // Prepend Movie
     $("#movies-view").html(movieDiv);
   });
 
-});
-});
+  // End of ajax function
+  });
+
+  // End of click event
+  });
 
 
 
