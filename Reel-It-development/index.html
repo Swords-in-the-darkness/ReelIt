@@ -9,51 +9,12 @@
 
 	<!-- Fonts
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<script src="https://use.fontawesome.com/65ae6a4b4d.js"></script>								<!-- JR Added -->
+	<script src="https://use.fontawesome.com/65ae6a4b4d.js"></script>								
 
 	<!-- CSS
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="boot.css">.
-
-	<!-- JR Added -->
-	<style>
-
-	
-	.fa-star {
-		color: yellow;
-	}
-
-	.fa {
-		font-size: 20px;
-		padding-left: 15px;
-	}
-
-	#movieTable, #recentSearchResults {
-		margin-bottom: 20px;
-	}
-
-	#searchForm > label {
-		margin-left: 10px;
-	}
-
-	#searchForm > label:first-child {
-		margin-left: 0px;
-	}
-
-	#searchForm > input {
-		width: 100px;
-	}
-
-	#searchForm > input {
-		width: 100px;
-	}
-
-/*	#searchForm > input:active {
-		width: 200px;
-	}
-*/
-	</style>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
@@ -90,7 +51,7 @@
 		</div>
 
 		<!-- Table -->
-		<div class="container" id="movieTable">  <!-- JR Added -->
+		<div class="container" id="movieTable"> 
 			<div class="row">
 				<div class="panel panel-primary">
 					<div class="container" id="movieResults">
@@ -135,9 +96,11 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>                 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
-	<script src="youtube_api.js"></script>															
+	<script src="jquery.expandable.js"></script>     <!-- Expandable inputs plug-in -->
+	<script src="assets/javascript/api3_combined.js"></script> 
+<!-- 	<script src="youtube_api.js"></script>															
 	<script src="TMDB_api.js"></script>																
-	<script src="firebase.js"></script>															
+	<script src="firebase.js"></script>	 -->														
 	
 	<!--<script src="assets/javascript/script.js"></script>-->
 	<script src="jquery.expandable.js"></script>
@@ -145,49 +108,12 @@
   	<script type="text/javascript">
 
   	// Placeholder images
+  	var placeholderSVG = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs"><img class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWYwOTFlNTkwYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjA5MWU1OTBhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="></div>'
+  	
+  	// Placeholder loop
   	for (var i = 0; i < 12; i++) {
-  		$('#movieResults').append('<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs"><img class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWYwOTFlNTkwYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjA5MWU1OTBhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="></div>')
+  		$('#movieResults').append(placeholderSVG);
   	}
-
- //  	// Netflix Movie Title Search
- //  	var movieTitle = '';
-
- //    $("#submitButton").on("click", function() {
-
- //      	event.preventDefault();
-
- //     	movieTitle = $("#movieTitle").val().trim();
-
-
- //      	// Code courtesy of http://eyaffe.github.io/how-to/
-	//     var req = new XMLHttpRequest();
-
-	// 	var URL = "https://netflixroulette.net/api/api.php?";
-	// 	var queryType = "title=";
-	// 	var query = movieTitle;
-
-	// 	req.open('GET', URL + queryType + query.replace(/\s/ig, "+"), true);
-	// 	req.addEventListener("load", function() {
-	// 		var response = JSON.parse(req.responseText);
-	// 		console.log(response);
-	// 		$('#movieResults').empty();
-	// 		var $result = $('<div>');
-	// 		$result.addClass('panel-body');
-	// 		if (response.errorcode === 404) {
-	// 			$result.html('<p> Sorry! That movie is not on Netflix! </p>');
-	// 		} else {
-	// 			$result.html('<p> Yes, ' + response.show_title + ' is available on Netflix.</p><img src="'+ response.poster +'">');
-
-	// 		}
-	// 		$('#movieResults').append($result);
-	// 	});
-	// 	req.send(null);
-
-
-
-	// });
-
-
 
   </script>
 

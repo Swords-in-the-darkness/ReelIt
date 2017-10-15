@@ -1,3 +1,6 @@
+
+/**** Global Styles  ****/
+
 .panel.panel-primary{
     background-color: #101010;
 }
@@ -26,6 +29,7 @@
 .thumbnail .caption {
 	color: white;
 }
+
 hr {
     margin-top: 100px;
     }
@@ -50,14 +54,17 @@ hr {
 p {
 	text-align: center;
 }
-.navbar-form {
-    border-color: black;
-    background-color: #101010;
-   }
-.navbar-inverse {
-    background-color: #101010;
-    border-color: black;
-}
+
+  /* Navbar */
+  .navbar-form {
+      border-color: black;
+      background-color: #101010;
+     }
+  .navbar-inverse {
+      background-color: #101010;
+      border-color: black;
+  }
+  
 #movies-view {
     border: #282d38;
 }
@@ -112,3 +119,24 @@ p {
     height: 55px;
     width: 55px;
     margin-top: -15px;
+}
+
+/**** index.html Styles  ****/
+
+  /* Firebase Table Styling */
+    /* Stars */
+    .fa-star {
+      color: yellow;
+    }
+
+    .fa {
+      font-size: 20px;
+      padding-left: 15px;
+    }
+
+  /* Table Margins */
+  #movieTable, #recentSearchResults {
+    margin-bottom: 20px;
+  }
+
+
