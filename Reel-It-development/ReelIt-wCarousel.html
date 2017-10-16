@@ -36,8 +36,10 @@
               <div class="form-group" id="searchForm">
                 <input type="text" name='query' class="form-control query"  id="movieTitle" style="width:300px;" placeholder="Search movie titles">
               </div>
-              <button type="submit" class="btn btn-primary" id="submitButton">Reel It</button>
+              <button type="submit" class="btn btn-primary" id="submitButton" onclick="formValidation()">Reel It</button>
+                <div class="form-validation"></div>
           </form> 
+          
 
 <!--     <form class="navbar-form" name="movie-form" role="search" method="get">
     <div class="form-group" id="searchForm">
@@ -261,6 +263,8 @@
   <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>                 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script> 
   <script src="assets/javascript/api3_combined.js"></script> 
+  <script src="assets/javascript/validation.js"></script>
+
  
 </body>
 </html>
