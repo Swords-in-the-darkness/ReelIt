@@ -41,11 +41,32 @@ $(document).ready(function(){
 // =====================================================================================
 
 $("#submitButton").on("click", function(event) {
+
+  // Store search query
+  var query = $('#movieTitle').val().trim();
+  
+  // Push search query to database
+  database.ref().push({
+    searchTerm : query
+  });
+
+  // Load search results page
+  window.location.href='ReelIt-wCarousel.html';
+});
+
+
+if(window.location.pathname == '/ReelIt-wCarousel.html') {
   // event.preventDefault();
+  console.log('executed');
+  
+  database.ref.endAt().limit(1).once("child_added", function (snapshot) {
+    var movie = snapshot.val();
+  });
+
   $(".frontPage").hide(1000);
   $(".movieDivRecs").empty();
   $(".castMain").empty();
-  movie = $(".query").val().trim();
+  //movie = $(".query").val().trim();
   var encodedMov = encodeURIComponent(movie);
   var movieID;
   var settings = {
@@ -228,8 +249,10 @@ $("#submitButton").on("click", function(event) {
   // End of ajax function
   });
 
-  // End of click event
-  });
+  // End of if statement
+  };
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
