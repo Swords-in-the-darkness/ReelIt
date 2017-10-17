@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+$('#searchResults').hide();
+
 // index.html Placeholder Image Loop
 // =====================================================================================
 
@@ -42,6 +44,8 @@ $(document).ready(function(){
 
 $("#submitButton").on("click", function(event) {
   // event.preventDefault();
+  $('#movieTable').hide();
+  $('#searchResults').show();
   $(".frontPage").hide(1000);
   $(".movieDivRecs").empty();
   $(".castMain").empty();
