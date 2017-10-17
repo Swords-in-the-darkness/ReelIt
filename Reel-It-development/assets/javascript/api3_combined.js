@@ -587,7 +587,7 @@ $(function(){
 // =====================================================================================
 
 // Firebase watcher + initial loader 
-    database.ref().on("child_added", function(childSnapshot) {
+    database.ref().orderByChild('dateAdded').limitToLast(10).on("child_added", function(childSnapshot) {
 
     // Create row
     var $movieRow = $('<tr>');
@@ -625,7 +625,7 @@ $(function(){
     $movieRow.append($releaseDateCell);
 
     // Add row to table
-      $("#moviesGoHere").append($movieRow);
+      $("#moviesGoHere").prepend($movieRow);
 
     // Handle the errors
     }, function(errorObject) {
