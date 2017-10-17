@@ -29,9 +29,9 @@ $.ajax(settings).done(function (response) {
     var topMovieDiv = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center"></div>'
 
     // top Movie Image loop
-    for (var i = 0; i < 12 ; i++) {
+    for (var i = 0; i < response.results.length ; i++) {
     var topMovieImg = $("<img class='img img-responsive topMovie'>")
-    var topMovieSrc = "https://image.tmdb.org/t/p/w300/" + response.results[i].poster_path;
+    var topMovieSrc = "https://image.tmdb.org/t/p/w185/" + response.results[i].poster_path;
     topMovieImg.attr("src", topMovieSrc);
     topMovieImg.attr('data-title', response.results[i].title);
     topMovieImg.attr('class', 'movieTitleSearch');
