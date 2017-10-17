@@ -581,19 +581,19 @@ var iTunesSearch = function(searchTermi) {
     var $movieRow = $('<tr>');
 
     // Create cells
-    var $favoritedCell = $('<td>');
+    //var $favoritedCell = $('<td>');
     var $movieNameCell = $('<td>');
     var $releaseDateCell = $('<td>');
 
     // Favorite cell
     // If movie is favorited, display yellow start. If it is not, display blank star.
     //$favoritedCell.attr('class', 'favoriteStar')
-    if (childSnapshot.val().favorited) {
-      $favoritedCell.html(yellowStar);
-    } else {
-      $favoritedCell.html(emptyStar);
-    };
-    $movieRow.append($favoritedCell);
+    // if (childSnapshot.val().favorited) {
+    //   $favoritedCell.html(yellowStar);
+    // } else {
+    //   $favoritedCell.html(emptyStar);
+    // };
+    // $movieRow.append($favoritedCell);
 
     // Movie name cell
     if (childSnapshot.val().movieUrl.length > 0) {
@@ -620,15 +620,15 @@ var iTunesSearch = function(searchTermi) {
       console.log("Errors handled: " + errorObject.code);
     });
 
-  $("#moviesGoHere").delegate(".favoriteStar", "click", function() {
-      if ($(this).attr("data-favorited", "true")) {
-        $(this).empty();
-        $(this).parent().html(yellowStar);
-      } else {
-        $(this).empty();
-        $(this).parent().html(emptyStar); 
-      }
-    });  
+  // $("#moviesGoHere").delegate(".favoriteStar", "click", function() {
+  //     if ($(this).attr("data-favorited", "true")) {
+  //       $(this).empty();
+  //       $(this).parent().html(yellowStar);
+  //     } else {
+  //       $(this).empty();
+  //       $(this).parent().html(emptyStar); 
+  //     }
+  //   });  
 
 // Click Functions
 // =====================================================================================
