@@ -2,23 +2,45 @@ $(document).ready(function(){
 
 $('#searchResults').hide();
 
-// index.html Placeholder Image Loop
+// index.html Top Movie Grid - AJAX call (TMDB)
 // =====================================================================================
 
-    // Placeholder image SVG
-    var placeholderSVG = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs"><img class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWYwOTFlNTkwYSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjA5MWU1OTBhIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="></div>'
-    
-    // Placeholder loop
-    for (var i = 0; i < 12; i++) {
-      $('#movieGrid').append(placeholderSVG);
-    }
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=e78bedc80954fdbe9d13505b16448776",
+  "method": "GET",
+  "headers": {},
+  "data": "{}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response.results);
+
+
+// index.html Populate Top Movie Grid - Image Loop
+// =====================================================================================
+
+     // Top 20 Movies 
+    var topMovieDiv = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center"></div>'
+
+    // top Movie Image loop
+    for (var i = 0; i < 12 ; i++) {
+    var topMovieImg = $("<img class='img img-responsive topMovie'>")
+    var topMovieSrc = "https://image.tmdb.org/t/p/w300/" + response.results[i].poster_path;
+    topMovieImg.attr("src", topMovieSrc);
+    topMovieImg.css({margin:'10px', align:'center', display:'inline', height: '350px', width:'250px'});
+    console.log(topMovieImg)
+    $('#movieGrid').append(topMovieImg);
+    };
+});
 
 // Firebase | JavaScript Code
 // =====================================================================================
 
   // Setup Variables 
   // =====================================================================================
-
+ 
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAZvaB7V67-3e53_b0-zoFZ8HcjgocLqZ0",
@@ -43,10 +65,11 @@ $('#searchResults').hide();
 // =====================================================================================
 
 $("#submitButton").on("click", function(event) {
-  // event.preventDefault();
+  event.preventDefault();
   $('#movieTable').hide();
   $('#searchResults').show();
-  $(".frontPage").hide(1000);
+  $("#firstPage").hide();
+  $(".frontPage").hide();
   $(".movieDivRecs").empty();
   $(".castMain").empty();
   movie = $(".query").val().trim();
@@ -114,7 +137,7 @@ $("#submitButton").on("click", function(event) {
   // Link to Stream
       var movieStream = $("<a>");
       var movieStreamURL = ("http://www.canistream.it/search/movie/" + encodedMov);
-        movieStream.addClass("btn btn-stream btn-md btn-warning");
+        movieStream.addClass("btn btn-stream btn-sm btn-primary");
         movieStream.attr("role", "button")
         movieStream.attr("target", "_blank")
         movieStream.attr("href", movieStreamURL);
@@ -468,7 +491,7 @@ $(function(){
 
             var directorDiv = $('<p>');
 
-            directorDiv.append("Director: " + itunesMovieDirector);
+            directorDiv.append(itunesMovieDirector);
 
             
 

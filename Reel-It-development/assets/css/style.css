@@ -2,11 +2,11 @@
 /**** Global Styles  ****/
 
 .panel.panel-primary{
-    background-color: #101010;
+    background-color: rgba(16,16,16,.4);
 }
 
 .panel-default{
-    background: #101010;
+    background: rgba(16,16,16,.6);
     border-color: #101010;
 }
 .panel-default .panel-heading{
@@ -14,20 +14,20 @@
     color: white;
 }
 .panel-default .panel-body{
-   background: #101010;
-   color: white;
+    background-color: rgba(16,16,16,.4);
+    color: snow;
 }
 
 .container-fluid {
-	color: white;
+  color: snow;
 }
 
 .thumbnail {
-	background-color: #101010;
-	border-color: #101010;
+  background-color: #101010;
+  border-color: #101010;
 }
 .thumbnail .caption {
-	color: white;
+  color: snow;
 }
 
 hr {
@@ -39,12 +39,12 @@ hr {
    }
 
  .progress {
- 	border: 1px solid black;
+  border: 1px solid black;
  }
 
  .btn-default {
- 	background-color: #337ab7;
- 	color: white;
+  background-color: #337ab7;
+  color: snow;
  }
 
 .col-sm-4 {
@@ -52,7 +52,7 @@ hr {
     border-radius: 12px;
 }
 p {
-	text-align: center;
+  text-align: center;
 }
 
   /* Navbar */
@@ -64,14 +64,25 @@ p {
       background-color: #101010;
       border-color: black;
   }
-  
+  a#submitButton{
+    border:1px solid #0089f5;
+    color: #0089f5;
+    background-color: #101010;
+  }
+
+  a#submitButton:hover{
+    border:1px solid #0089f5;
+    color: #0089f5;
+    text-shadow: 1px snow;
+    background-color: #282d38; 
+  }
 #movies-view {
     border: #282d38;
 }
 
 #movieDivTitle {
-	color: white;
-	font-size: 50px;
+  color: white;
+  font-size: 50px;
 }
 
  body {
@@ -139,4 +150,5 @@ p {
     margin-bottom: 20px;
   }
 
+ 
 

@@ -1,94 +1,60 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<!-- Basic Page Needs
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Fonts
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<script src="https://use.fontawesome.com/65ae6a4b4d.js"></script>								
+  <!-- Fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://use.fontawesome.com/65ae6a4b4d.js"></script>               
 
-	<!-- CSS
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
-	<!-- Primary Page Layout
-  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	
-		<!-- Header
-		========================================== -->
-    	<nav class="navbar navbar-default navbar-inverse navbar-static-top">
-      		<div class="container-fluid">
-        		<div class="navbar-header">
-          			<a class="navbar-brand" href="index.html" target="_self"><img class="logo" alt="Reel It" src="assets/images/logo2.png"></a>
-        		</div>
-        	</div>
-        </nav>
-
-		<!-- Main
-		========================================== -->
-		
-		<!-- Search Area -->
-		<div class="container">
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<form class="form-inline text-center">
-							<div class="form-group" id="searchForm">
-								<input type="text" class="form-control query homepageSearch" id="movieTitle" style="width:300px;" placeholder="Movie or TV Show Title">
-							</div>
-							<a href="ReelIt-TMDB+YT.html" role="button" target="_blank" type="submit" class="btn btn-primary" id="submitButton">Submit</a>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Table -->
-		<div class="container" id="movieTable"> 
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="container" id="movieGrid">
-					</div>
-				</div>
-			</div>
-		</div>
-
-	<!-- Search Results
+  <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
-  	<div id="searchResults">
     <!-- Header
     ========================================== -->
-    <nav class="navbar navbar-default navbar-inverse navbar-static-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html" target="_self"><img class="logo" alt="Reel It" src="assets/images/logo2.png"></a>
-        </div>
-          <form class=" navbar-form" id="movie-form">
+    
+      <nav class="navbar navbar-default navbar-inverse navbar-static-top well-lg">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html" target="_self"><img class="logo" alt="Reel It" src="assets/images/logo2.png"></a>
+            </div>
+            <form class="navbar-form form-inline text-left">
               <div class="form-group" id="searchForm">
-                <input type="text" name='query' class="form-control query"  id="movieTitle" style="width:300px;" placeholder="Search movie titles">
+                <input type="text" class="form-control query homepageSearch" id="movieTitle" style="width:300px;" placeholder="Movie or TV Show Title">
               </div>
-              <button type="submit" class="btn btn-primary" id="submitButton" onclick="formValidation()">Reel It</button>
-                <div class="form-validation"></div>
-          </form> 
-          
+              <a href="ReelIt-TMDB+YT.html" role="button" target="_blank" type="submit" class="btn btn-primary" id="submitButton">Submit</a>
+            </form>
+          </div>
+        </nav>
 
-<!--     <form class="navbar-form" name="movie-form" role="search" method="get">
-    <div class="form-group" id="searchForm">
-        <input class="form-control query" placeholder="Search movie titles" type="text" name="query">
+    <!-- Main // Landing Page w Movie Grid
+    ========================================== -->
+
+    <!-- Table -->
+    <div class="container" id="movieTable"> 
+      <div class="row justify-content-between text-center">
+        <div class="panel panel-primary">
+          <div class="container " id="movieGrid">
+          </div>
+        </div>
       </div>
-      <button class="btn btn-default" id="submitButton" type="submit">Reel It</button>
-    </form> -->
-  
     </div>
-  </nav>
+
+  <!-- Search Results
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+    <div id="searchResults">
 
     <!-- Main
     ========================================== -->
@@ -101,51 +67,15 @@
 
 
       <div class="col-sm-6">
-          <div id="myCarousel" class=" frontPage carousel slide" data-ride="carousel">
-      
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner center-block">
-        <div class="item active" style="width:100%">
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/cbRQVCia0urtv5UGsVFTdqLDIRv.jpg" class="img img-responsive center">
-        </div>
-
-        <div class="item" style="width:100%">
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/dN9LbVNNZFITwfaRjl4tmwGWkRg.jpg" class="img img-responsive center">
-        </div>
-
-        <div class="item" style="width:100%">
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg" class="img img-responsive center">
-        </div>
-
-        <div class="item" style="width:100%">
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/qmi2dsuoyzZdJ0WFZYQazbX8ILj.jpg" class="img img-responsive center">
-        </div>    
-      </div>
-
-      <!-- Left and right controls -->
-      <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a> -->
+        <div class="frontPage">
+  
         </div>
         <div id="movies-view">
         </div>
       </div>
 
 
-      <div class="col-sm-4 side-panel">
+      <div class="col-sm-4 side-panel text-center ">
         <br>
 
 
@@ -198,11 +128,12 @@
         <!-- Streaming Button/Link -->
 
       <div class="panel panel-default">
-        <div class="btn-group availability">
-        <div class="movieDivStream moviePurchase"></div>
-       </div>
+        <div class="panel-heading text-center">
+          Watch It
+        </div>
+        <div class="movieDivStream moviePurchase btn-group panel-body"></div>
       </div>
-    <br>
+
 
 
         <div class="panel panel-default">
@@ -288,30 +219,30 @@
     <br>
   </div>
 </div>
-	<!-- Recent Searches Table
+  <!-- Recent Searches Table
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-		<!-- Table -->
-		<div class="container" id="recentSearchResults">
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="panel-heading">Recent Searches</div>
-					<div class="container">
-						<table class="table">
-							<thead>
-	      						<tr>
-		        					<th>Favorite</th>
-							        <th>Movie Title</th>
-							        <th>Release Date</th>
-						      	</tr>
-	    					</thead>
-	    					<tbody id="moviesGoHere">
-	    					</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	
+    <!-- Table -->
+    <div class="container" id="recentSearchResults">
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Recent Searches</div>
+          <div class="container">
+            <table class="table">
+              <thead>
+                    <tr>
+                      <th>Favorite</th>
+                      <th>Movie Title</th>
+                      <th>Release Date</th>
+                    </tr>
+                </thead>
+                <tbody id="moviesGoHere">
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
 
   <footer class="container-fluid text-center">
     <p>Reel It 2017</p>
@@ -319,13 +250,13 @@
 </body>
 
 
-	<!-- JavaScript
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- JavaScript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>                 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
-	<script src="assets/javascript/jquery.expandable.js"></script>     <!-- Expandable inputs plug-in -->
-	<script src="assets/javascript/api3_combined.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>                 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
+  <script src="assets/javascript/jquery.expandable.js"></script>     <!-- Expandable inputs plug-in -->
+  <script src="assets/javascript/api3_combined.js"></script> 
 
 </html>
