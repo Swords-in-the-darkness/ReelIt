@@ -453,7 +453,7 @@ var iTunesSearch = function(searchTermi) {
          
             var itunesRatingDiv = $('<p>');
 
-            itunesRatingDiv.append("Rated: " + itunesMovieRating);
+            itunesRatingDiv.html("Rated: " + itunesMovieRating);
 
             
 
