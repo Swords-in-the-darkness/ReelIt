@@ -33,8 +33,8 @@
               <div class="form-group" id="searchForm">
                 <input type="text" class="form-control query homepageSearch" id="movieTitle" style="width:300px;" placeholder="Movie or TV Show Title">
               </div>
-              <button type="submit" class="btn btn-primary" id="submitButton">Reel It</button>
-              <span style="padding-left: 550px; font-size: 20px; color: #0089f5">Search it. Find it. Reel it.</span>
+              <a href="ReelIt-TMDB+YT.html" role="button" target="_blank" type="submit" class="btn btn-primary" id="submitButton">Reel It</a>
+               <span class="navbar-brand navbar-right" style="font-size: 20px; color: #0089f5" href="#">Search it. Find it. Reel it.</span>
             </form>
           </div>
         </nav>
@@ -88,7 +88,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading text-center">
-            Plot
+            Summary
           </div>
 
 
@@ -157,7 +157,7 @@
 
 
     <div class="container-fluid text-center">
-      <h3>Featured Cast Members</h3>
+      <h3 style="font-weight: bold">Featured Cast Members</h3>
       <br>
 
 
@@ -169,7 +169,7 @@
 
 
       <div class="container-fluid text-center">
-        <h3>You might also enjoy...</h3>
+        <h3 style="font-weight: bold" >You might also enjoy...</h3>
         <br>
 
 
@@ -187,7 +187,7 @@
 
   <div class="container-fluid text-center">
     <div class="row text-center">
-      <h3>Trailers</h3>
+      <h3 style="font-weight: bold;"> Trailers</h3>
       <br>
 
 
@@ -198,7 +198,7 @@
 
 
     <div class="row text-center">
-      <h3>Reviews</h3>
+      <h3 style="font-weight: bold" ">Reviews</h3>
       <br>
 
 
@@ -209,7 +209,7 @@
 
 
     <div class="row text-center">
-      <h3>Popular Videos</h3>
+      <h3 style="font-weight: bold">Popular Videos</h3>
       <br>
 
 
@@ -222,17 +222,17 @@
   <!-- Recent Searches Table
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <!-- Table -->
-    <div class="container text-center" id="recentSearchResults">
+    <div class="container" id="recentSearchResults">
       <div class="row">
         <div class="panel panel-primary">
           <div class="panel-heading">Recent Searches</div>
           <div class="container">
-            <table class="table table-condensed">
+            <table class="table">
               <thead>
                     <tr>
-<!--                       <th>Favorite</th> -->
-                      <th class="text-center">Movie Title</th>
-                      <th class="text-center">Release Date</th>
+                      <th>Favorite</th>
+                      <th>Movie Title</th>
+                      <th>Release Date</th>
                     </tr>
                 </thead>
                 <tbody id="moviesGoHere">

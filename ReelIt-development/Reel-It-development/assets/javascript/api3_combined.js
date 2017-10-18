@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-// Setup Variables and Function Calls
-// =====================================================================================
-
-// Hide Search Results HTML
 $('#searchResults').hide();
 
 // index.html Top Movie Grid - AJAX call (TMDB)
@@ -25,23 +21,21 @@ $.ajax(settings).done(function (response) {
 // index.html Populate Top Movie Grid - Image Loop
 // =====================================================================================
 
-     // Top 20 Movies   
+     // Top 20 Movies 
     var topMovieDiv = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center"></div>'
 
     // top Movie Image loop
-    for (var i = 0; i < response.results.length ; i++) {
+    for (var i = 0; i < 12 ; i++) {
     var topMovieImg = $("<img class='img img-responsive topMovie'>")
-    var topMovieSrc = "https://image.tmdb.org/t/p/w185/" + response.results[i].poster_path;
+    var topMovieSrc = "https://image.tmdb.org/t/p/w300/" + response.results[i].poster_path;
     topMovieImg.attr("src", topMovieSrc);
-    topMovieImg.attr('data-title', response.results[i].title);
-    topMovieImg.attr('class', 'movieTitleSearch');
     topMovieImg.css({margin:'10px', align:'center', display:'inline', height: '350px', width:'250px'});
     console.log(topMovieImg)
     $('#movieGrid').append(topMovieImg);
     };
 });
 
-// Firebase
+// Firebase | JavaScript Code
 // =====================================================================================
 
   // Setup Variables 
@@ -67,17 +61,18 @@ $.ajax(settings).done(function (response) {
   var emptyStar = '<i class="fa fa-star-o favoriteStar" aria-hidden="true" data-favorited="false"></i>';
 
 
-// The Movie DB API | Functions
+// The Movie DB API | JavaScript Code
 // =====================================================================================
 
-var searchForMovie = function(movie) {
+$("#submitButton").on("click", function(event) {
+  event.preventDefault();
   $('#movieTable').hide();
   $('#searchResults').show();
   $("#firstPage").hide();
   $(".frontPage").hide();
   $(".movieDivRecs").empty();
   $(".castMain").empty();
-  //movie = $(".query").val().trim();
+  movie = $(".query").val().trim();
   var encodedMov = encodeURIComponent(movie);
   var movieID;
   var settings = {
@@ -131,13 +126,14 @@ var searchForMovie = function(movie) {
       $(".progress-bar").css("width", ratingPercent + "%");
       $(".movieRating").text(ratingPercent + "%");
 
-  // Progress Bar Color
       var progressBarColor;
       if (rating >=8) progressBarColor = "#00C851"
       else if (rating >=5.5) progressBarColor = "#ffbb33"
       else if (rating >=0) progressBarColor = "#ff4444"
 
-      $("#progressbar").css('background-color', progressBarColor);
+        $("#progressbar").css('background-color', progressBarColor);
+
+      // $(".movieDivVote").html(movieRatingDisplay);
 
 
   // Movie Released Date
@@ -267,15 +263,26 @@ var searchForMovie = function(movie) {
   // End of ajax function
   });
 
-  // End of searchForMovie function
-  };
+  // End of click event
+  });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// YouTube API | Functions
+// YouTube API | JavaScript Code
 // =====================================================================================
 
-  function popularGetRequest(searchTerm){
+$(function(){
+
+  $("#submitButton").on("click", (function(){
+  // $('#search-form').submit(function(event){ // when the user clicks submit....
+    event.preventDefault(); // prevent the form from submitting
+    var searchTerm = $('.query').val(); // take whatever is in the search field and put it in searchTerm
+    getRequest(searchTerm); //call the function "getRequest" and pass it the search term
+  // }); 
+  }));
+
+
+  function getRequest(searchTerm){
     var userQuery = searchTerm;
 
     //alert(typeof(userQuery));
@@ -291,13 +298,13 @@ var searchForMovie = function(movie) {
     $.getJSON(url, params, function(data){
       console.log(data);
       //debugger;
-      popularShowResults(data.items);
+      showResults(data.items);
       console.log(data.items);
       
     });
   }
 
-  function popularShowResults(results){ //shows the results to the user
+  function showResults(results){ //shows the results to the user
     var htmlPopular = ""; // variable to hold the html
     $.each(results, function(index,items){ //for each of the results
   //debugger;
@@ -305,13 +312,27 @@ var searchForMovie = function(movie) {
       htmlPopular += '<a href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlPopular += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
       htmlPopular += '</a>';
+     
       // console.log(items.snippet.thumbnails.default.url);
       console.log(items.id.videoId);
     });
     $('#popular').html(htmlPopular); // display each of those paragraphs on the page
   }
+});
 
-  function trailersGetRequest(searchTerm){
+$(function(){
+
+  $("#submitButton").on("click", (function(){
+  // $('#search-form').submit(function(event){ // when the user clicks submit....
+    event.preventDefault(); // prevent the form from submitting
+    var searchTerm = $('.query').val(); // take whatever is in the search field and put it in searchTerm
+    getRequest(searchTerm); //call the function "getRequest" and pass it the search term
+  // });
+  
+  }));
+
+
+  function getRequest(searchTerm){
     var userQuery = searchTerm + "trailer";
 
     //alert(typeof(userQuery));
@@ -327,13 +348,13 @@ var searchForMovie = function(movie) {
     $.getJSON(url, params, function(data){
       console.log(data);
       //debugger;
-      trailersShowResults(data.items);
+      showResults(data.items);
       console.log(data.items);
       
     });
   }
 
-  function trailersShowResults(results){ //shows the results to the user
+  function showResults(results){ //shows the results to the user
     var htmlTrailers = ""; // variable to hold the html
     $.each(results, function(index,items){ //for each of the results
   //debugger;
@@ -347,13 +368,23 @@ var searchForMovie = function(movie) {
     });
     $('#trailers').html(htmlTrailers); // display each of those paragraphs on the page
   }
-
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+$(function(){
 
-  function reviewsGetRequest(searchTerm){
+  $("#submitButton").on("click", (function(){
+  // $('#search-form').submit(function(event){ // when the user clicks submit....
+    event.preventDefault(); // prevent the form from submitting
+    var searchTerm = $('.query').val(); // take whatever is in the search field and put it in searchTerm
+    getRequest(searchTerm); //call the function "getRequest" and pass it the search term
+  // });
+  }));
+
+
+  function getRequest(searchTerm){
     var userQuery = searchTerm + "review";
 
     //alert(typeof(userQuery));
@@ -369,13 +400,13 @@ var searchForMovie = function(movie) {
     $.getJSON(url, params, function(data){
       console.log(data);
       //debugger;
-      reviewsShowResults(data.items);
+      showResults(data.items);
       console.log(data.items);
       
     });
   }
 
-  function reviewsShowResults(results){ //shows the results to the user
+  function showResults(results){ //shows the results to the user
     var htmlReviews = ""; // variable to hold the html
     $.each(results, function(index,items){ //for each of the results
   //debugger;
@@ -391,15 +422,25 @@ var searchForMovie = function(movie) {
   }
 
   $("<img>").addClass("img img-responsive");
+});
+
 
 
 //-----------------------------------------------------------
 //-----------------Begin ITUNES movie search api ------------
 //-----------------------------------------------------------
 
-var iTunesSearch = function(searchTermi) {
+    var searchTerm = "";
+    var queryURL = "";
+    var requestData = "";
+
+
+  $('#submitButton').on('click', function(event) {
+        event.preventDefault();
     $(".moviePurchase").empty();
     $(".director").empty();
+
+    var searchTermi =  $('.query').val().trim();
       
     var queryURLi = "https://itunes.apple.com/search?term="+ searchTermi +"&entity=movie&limit=1";
 
@@ -453,7 +494,7 @@ var iTunesSearch = function(searchTermi) {
          
             var itunesRatingDiv = $('<p>');
 
-            itunesRatingDiv.html("Rated: " + itunesMovieRating);
+            itunesRatingDiv.append("Rated: " + itunesMovieRating);
 
             
 
@@ -479,7 +520,7 @@ var iTunesSearch = function(searchTermi) {
             // $('#movieResults').append(newMovieDivDisplay);
             $(".moviePurchase").append(linkDiv);
             $(".director").append(directorDiv);
-            $(".ratingFCC").html(itunesRatingDiv);
+            $(".ratingFCC").append(itunesRatingDiv);
 
 
 
@@ -494,7 +535,14 @@ var iTunesSearch = function(searchTermi) {
 
         // end of ajax call
        });
-     
+
+
+//End of on click function
+});
+
+
+
+          
 
           for (var i = 0; i<requestData.length; i++){
 
@@ -560,7 +608,7 @@ var iTunesSearch = function(searchTermi) {
             // If you can accomplish that with genre ID, store the genre IDs in an array of objects or as items in a select menu, etc...
 
            }
-            };   
+               
 
 // Expandable Form
 // =====================================================================================
@@ -581,19 +629,19 @@ var iTunesSearch = function(searchTermi) {
     var $movieRow = $('<tr>');
 
     // Create cells
-    //var $favoritedCell = $('<td>');
+    var $favoritedCell = $('<td>');
     var $movieNameCell = $('<td>');
     var $releaseDateCell = $('<td>');
 
     // Favorite cell
     // If movie is favorited, display yellow start. If it is not, display blank star.
     //$favoritedCell.attr('class', 'favoriteStar')
-    // if (childSnapshot.val().favorited) {
-    //   $favoritedCell.html(yellowStar);
-    // } else {
-    //   $favoritedCell.html(emptyStar);
-    // };
-    // $movieRow.append($favoritedCell);
+    if (childSnapshot.val().favorited) {
+      $favoritedCell.html(yellowStar);
+    } else {
+      $favoritedCell.html(emptyStar);
+    };
+    $movieRow.append($favoritedCell);
 
     // Movie name cell
     if (childSnapshot.val().movieUrl.length > 0) {
@@ -620,43 +668,19 @@ var iTunesSearch = function(searchTermi) {
       console.log("Errors handled: " + errorObject.code);
     });
 
-  // $("#moviesGoHere").delegate(".favoriteStar", "click", function() {
-  //     if ($(this).attr("data-favorited", "true")) {
-  //       $(this).empty();
-  //       $(this).parent().html(yellowStar);
-  //     } else {
-  //       $(this).empty();
-  //       $(this).parent().html(emptyStar); 
-  //     }
-  //   });  
-
-// Click Functions
-// =====================================================================================
-
-  var searchProcess = function(query) {
-      searchForMovie(query);
-      reviewsGetRequest(query);
-      popularGetRequest(query);
-      trailersGetRequest(query);
-      iTunesSearch(query);
-    };
-
-  // Searching by clicking the sumbit button
-  $("#submitButton").on("click", function(event) {
-    event.preventDefault();
-    var query = $(".query").val().trim();
-    searchProcess(query);
-  });
-
-  // Searching by clicking a Top 10 movie
-  $('body').delegate(".movieTitleSearch", "click", function() {
-    $('html,body').scrollTop(0);
-    var query = $(this).attr('data-title');
-    searchProcess(query);
-  });
+  $("#moviesGoHere").delegate(".favoriteStar", "click", function() {
+      if ($(this).attr("data-favorited", "true")) {
+        $(this).empty();
+        $(this).parent().html(yellowStar);
+      } else {
+        $(this).empty();
+        $(this).parent().html(emptyStar); 
+      }
+    });  
 
 // End of $(document).ready function
 });
+
 
 
 
