@@ -1,6 +1,10 @@
 
 /**** Global Styles  ****/
 
+#movieTable {
+  margin-top: 100px;
+}
+
 .panel.panel-primary{
     background-color: rgba(16,16,16,.4);
 }

@@ -6,6 +6,9 @@ $(document).ready(function(){
 // Hide Search Results HTML
 $('#searchResults').hide();
 
+// Run chardinjs
+$('body').chardinJs('start');
+
 // index.html Top Movie Grid - AJAX call (TMDB)
 // =====================================================================================
 
@@ -642,6 +645,7 @@ var iTunesSearch = function(searchTermi) {
   // Searching by clicking the sumbit button
   $("#submitButton").on("click", function(event) {
     event.preventDefault();
+    $('body').chardinJs('stop');
     var query = $(".query").val().trim();
     if(query ==""){
       $("#movieTitle").attr("placeholder","Please enter a valid movie title")
@@ -650,8 +654,10 @@ var iTunesSearch = function(searchTermi) {
     searchProcess(query);
   });
 
-  // Searching by clicking a Top 10 movie
+
+  // Searching by clicking a Top 20 movie
   $('body').delegate(".movieTitleSearch", "click", function() {
+    $('body').chardinJs('stop');
     $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
