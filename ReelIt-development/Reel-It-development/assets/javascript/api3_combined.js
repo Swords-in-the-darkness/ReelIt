@@ -29,9 +29,9 @@ $.ajax(settings).done(function (response) {
     var topMovieDiv = '<div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center"></div>'
 
     // top Movie Image loop
-    for (var i = 0; i < 12 ; i++) {
+    for (var i = 0; i < response.results.length ; i++) {
     var topMovieImg = $("<img class='img img-responsive topMovie'>")
-    var topMovieSrc = "https://image.tmdb.org/t/p/w300/" + response.results[i].poster_path;
+    var topMovieSrc = "https://image.tmdb.org/t/p/w185/" + response.results[i].poster_path;
     topMovieImg.attr("src", topMovieSrc);
     topMovieImg.attr('data-title', response.results[i].title);
     topMovieImg.attr('class', 'movieTitleSearch');
@@ -453,7 +453,7 @@ var iTunesSearch = function(searchTermi) {
          
             var itunesRatingDiv = $('<p>');
 
-            itunesRatingDiv.append("Rated: " + itunesMovieRating);
+            itunesRatingDiv.html("Rated: " + itunesMovieRating);
 
             
 
@@ -479,7 +479,7 @@ var iTunesSearch = function(searchTermi) {
             // $('#movieResults').append(newMovieDivDisplay);
             $(".moviePurchase").append(linkDiv);
             $(".director").append(directorDiv);
-            $(".ratingFCC").append(itunesRatingDiv);
+            $(".ratingFCC").html(itunesRatingDiv);
 
 
 
@@ -597,10 +597,11 @@ var iTunesSearch = function(searchTermi) {
 
     // Movie name cell
     if (childSnapshot.val().movieUrl.length > 0) {
-      var $movieNameContents = $('<a>');
-      $movieNameContents.attr('href', childSnapshot.val().movieUrl);
-      $movieNameContents.attr("target", "_blank")
-      $movieNameContents.html(childSnapshot.val().movieName);
+      var currentMovieTitle = childSnapshot.val().movieName;
+      var $movieNameContents = $('<p>');
+      $movieNameContents.attr('class', 'databaseMovieTitle');
+      $movieNameContents.attr('data-title', currentMovieTitle);
+      $movieNameContents.html(currentMovieTitle);
       $movieNameCell.html($movieNameContents);
     } else {
       var $movieName = $('<p>');
@@ -650,12 +651,25 @@ var iTunesSearch = function(searchTermi) {
 
   // Searching by clicking a Top 10 movie
   $('body').delegate(".movieTitleSearch", "click", function() {
+    $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
   });
 
+  $('body').delegate(".movieTitleSearch", "click", function() {
+    $('html,body').scrollTop(0);
+    var query = $(this).attr('data-title');
+    searchProcess(query);
+  });
+
+  $('body').delegate(".databaseMovieTitle", "click", function() {
+    $('html,body').scrollTop(0);
+    var query = $(this).attr('data-title');
+    searchProcess(query);
+  });
 // End of $(document).ready function
 });
+
 
 
 
