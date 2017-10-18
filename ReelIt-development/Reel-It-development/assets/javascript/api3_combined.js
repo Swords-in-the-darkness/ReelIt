@@ -479,7 +479,7 @@ var iTunesSearch = function(searchTermi) {
             // $('#movieResults').append(newMovieDivDisplay);
             $(".moviePurchase").append(linkDiv);
             $(".director").append(directorDiv);
-            $(".ratingFCC").append(itunesRatingDiv);
+            $(".ratingFCC").html(itunesRatingDiv);
 
 
 
