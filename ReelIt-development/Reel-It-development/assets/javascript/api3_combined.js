@@ -596,17 +596,14 @@ var iTunesSearch = function(searchTermi) {
     // $movieRow.append($favoritedCell);
 
     // Movie name cell
-    if (childSnapshot.val().movieUrl.length > 0) {
+
       var currentMovieTitle = childSnapshot.val().movieName;
       var $movieNameContents = $('<p>');
       $movieNameContents.attr('class', 'databaseMovieTitle');
       $movieNameContents.attr('data-title', currentMovieTitle);
       $movieNameContents.html(currentMovieTitle);
       $movieNameCell.html($movieNameContents);
-    } else {
-      var $movieName = $('<p>');
-      $movieNameCell.text(childSnapshot.val().movieName);
-    }
+
     $movieRow.append($movieNameCell);
 
     // Release date cell
