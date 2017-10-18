@@ -165,3 +165,8 @@ p {
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
+
+.movieTitleSearch:hover {
+  transform: scale(1.05);
+  transition: transform .25s;
+}
