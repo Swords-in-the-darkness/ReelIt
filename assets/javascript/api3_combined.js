@@ -302,7 +302,7 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlPopular += '<a href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlPopular += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlPopular += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
       htmlPopular += '</a>';
       // console.log(items.snippet.thumbnails.default.url);
@@ -338,7 +338,7 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlTrailers += '<a href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlTrailers += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlTrailers += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
       htmlTrailers += '</a>';
 
@@ -380,7 +380,7 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlReviews += '<a href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlReviews += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlReviews += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
       htmlReviews += '</a>';
 
