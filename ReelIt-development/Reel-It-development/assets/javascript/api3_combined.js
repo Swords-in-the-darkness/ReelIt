@@ -650,6 +650,7 @@ var iTunesSearch = function(searchTermi) {
 
   // Searching by clicking a Top 10 movie
   $('body').delegate(".movieTitleSearch", "click", function() {
+    $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
   });
