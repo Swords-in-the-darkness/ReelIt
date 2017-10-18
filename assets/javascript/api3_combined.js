@@ -206,12 +206,13 @@ var searchForMovie = function(movie) {
       var movieRec = $("<a>");
       var movieRecID = response.recommendations.results[i].id;
       var movieRecTitle = response.recommendations.results[i].title;
-      var movieRecURL = ("https://www.themoviedb.org/movie/" + movieRecID);
-      var movieRecStream = ("https://www.fan.tv/movies/" + movieRecID);
-        movieRec.addClass("btn btn-recom btn-sm btn-default");
-        movieRec.attr("role", "button")
-        movieRec.attr("target", "_blank")
-        movieRec.attr("href", movieRecURL);
+      //var movieRecURL = ("https://www.themoviedb.org/movie/" + movieRecID);
+      //var movieRecStream = ("https://www.fan.tv/movies/" + movieRecID);
+        movieRec.addClass("btn btn-recom btn-sm btn-default recommendedButton");
+        movieRec.attr("role", "button");
+        //movieRec.attr("target", "_blank");
+        movieRec.attr('data-title', response.recommendations.results[i].title);
+        //movieRec.attr("href", movieRecURL);
         movieRec.text(movieRecTitle);
        $(".movieDivRecs").append(movieRec);
      }; 
@@ -674,6 +675,13 @@ var iTunesSearch = function(searchTermi) {
     var query = $(this).attr('data-title');
     searchProcess(query);
   });
+
+  $('body').delegate(".recommendedButton", "click", function() {
+    $('html,body').scrollTop(0);
+    var query = $(this).attr('data-title');
+    searchProcess(query);
+  });
+
 // End of $(document).ready function
 });
 
