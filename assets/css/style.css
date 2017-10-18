@@ -132,11 +132,10 @@ p {
     margin-top: -15px;
 }
 
-/**** index.html Styles  ****/
+/**** Firebase Table Styling ****/
 
-  /* Firebase Table Styling */
     /* Stars */
-    .fa-star {
+/*    .fa-star {
       color: yellow;
     }
 
@@ -144,12 +143,19 @@ p {
       font-size: 20px;
       padding-left: 15px;
     }
-
+*/
   /* Table Margins */
   #movieTable, #recentSearchResults {
     margin-bottom: 20px;
   }
 
-.well-lg {
-    padding: 18px;
-    border-radius: 0px;
+  .well-lg {
+      padding: 18px;
+      border-radius: 0px;
+}
+
+/**** Cursors ****/
+
+.movieTitleSearch:hover, .databaseMovieTitle:hover {
+  cursor:pointer;
+}
