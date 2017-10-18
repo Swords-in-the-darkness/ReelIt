@@ -1,7 +1,7 @@
 
 function formValidation() {
 
-	$( '#submitButton' ).click(function() {
+	
 	var formValidation = $('#movieTitle').val().trim();
 
 
@@ -22,7 +22,7 @@ function formValidation() {
 
 	
  
-});
+
 
 }
 
