@@ -643,6 +643,10 @@ var iTunesSearch = function(searchTermi) {
   $("#submitButton").on("click", function(event) {
     event.preventDefault();
     var query = $(".query").val().trim();
+    if(query ==""){
+      $("#movieTitle").attr("placeholder","Please enter a valid movie title")
+      validate({input: ""}, {input: {presence: {allowEmpty: false}}})
+    };
     searchProcess(query);
   });
 
