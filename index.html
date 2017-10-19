@@ -36,7 +36,7 @@
                 <input type="text" class="form-control query homepageSearch" id="movieTitle" style="width:300px;" placeholder="Movie Title" data-intro="Search for a movie here..." data-position="bottom">
               </div>
               <button type="submit" class="btn btn-primary" onclick="formValidation()" id="submitButton" data-intro="Welcome to Reel It. Your source for all the movie data you could need." data-position="right" data-toggle="tooltip" title="Click here to search!">Reel It</button>
-               <span class="navbar-brand navbar-right" style="font-size: 20px; color: #0089f5" href="#">Search it. Find it. Reel it.</span>
+               <span class="navbar-brand navbar-right" id="subtitle" href="#">Search it. Find it. <span>Reel it.</span>
              <div class="form-validation"></div>
             </form>
           </div>
@@ -48,7 +48,7 @@
     <!-- Table -->
     <div class="container" id="movieTable"> 
       <div class="row justify-content-between text-center">
-        <div class="panel panel-primary">
+        <div>
           <div class="container " id="movieGrid" data-intro="...or choose one of the 20 most popular movies here." data-position="top">
           </div>
         </div>
@@ -227,10 +227,10 @@
     <!-- Table -->
     <div class="container" id="recentSearchResults">
       <div class="row">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary panelSearches">
           <div class="panel-heading">Recent Searches</div>
           <div class="container">
-            <table class="table">
+            <table class="table table-hover table-condensed table-responsive">
               <thead>
                     <tr>
                       <th class="text-center">Movie Title</th>

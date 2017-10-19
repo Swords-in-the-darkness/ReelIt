@@ -1,6 +1,10 @@
 
 /**** Global Styles  ****/
 
+html {
+  font-size: 16px;
+}
+
 #movieTable {
   margin-top: 100px;
 }
@@ -68,10 +72,15 @@ p {
       background-color: #101010;
       border-color: black;
   }
+
+  #submitButton {
+    letter-spacing: .09em;
+  }
   a#submitButton{
     border:1px solid #0089f5;
     color: #0089f5;
     background-color: #101010;
+    letter-spacing: .09em;
   }
 
   a#submitButton:hover{
@@ -164,7 +173,7 @@ p {
   cursor:pointer;
 }
 
-.movieTitleSearch {
+.movieTitleSearch, .img-responsive {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -197,3 +206,28 @@ p {
 
 .container {
 color: lightgrey;
+}
+
+.panelSearches {
+  border-color: #101010;
+}
+
+.td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.navbar-default { 
+  box-shadow: 1px 1px 1px black !important;
+}
+
+#subtitle {
+  font-size: 1.5em; 
+  color: #0089f5; 
+  letter-spacing: .09em; 
+  font-weight: lighter;
+}
+
+#subtitle > span {
+    font-weight: bolder;
+}
