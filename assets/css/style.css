@@ -1,5 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Montserrat+Subrayada');
 /**** Global Styles  ****/
+body{
+font-family: 'Montserrat', sans-serif;
+}
 
 html {
   font-size: 16px;
@@ -24,8 +27,15 @@ html {
 .panel-default .panel-body{
     background-color: rgba(16,16,16,.4);
     color: snow;
+
 }
 
+.panel-heading{
+font-family: 'Montserrat', sans-serif;
+text-transform: uppercase;
+letter-spacing: .09em;
+font-weight: bold;
+}
 .container-fluid {
   color: snow;
 }
@@ -42,8 +52,12 @@ hr {
     margin-top: 100px;
     }
 
-.h2, h2 {
+.h2, h2, h3{
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .08em;
    }
 
  .progress {
@@ -136,7 +150,16 @@ p {
  .btn-warning {
     background-color: #5cb85c;
 }
-
+.btn, .btn-primary{
+  background-color: #0089f5;
+  border-radius: 10px;
+}
+.btn-primary:hover{
+  background-color: #0089f5;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 1px 1px black;
+}
 .logo {
     margin: 2px;
     border-radius: 5px;
@@ -208,28 +231,43 @@ p {
 color: lightgrey;
 }
 
-.panelSearches {
+.panelSearches{
   border-color: #101010;
+  text-align: left !important; 
 }
 
 .td {
   padding-top: 2px;
   padding-bottom: 2px;
-}
+  text-align: left !important; 
 
+}
+th, h5{
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-shadow: 1px 1px black; 
+  color: #0089f5; 
+
+}
 .navbar-default { 
   box-shadow: 1px 1px 1px black !important;
 }
 
 #subtitle {
-  font-size: 1.5em; 
+  font-size: 1.3em; 
   color: #0089f5; 
-  letter-spacing: .09em; 
+  letter-spacing: .1em; 
   font-weight: lighter;
+  text-shadow: 1px 1px #083a61; 
+  font-family: 'Montserrat', sans-serif;
 }
 
 #subtitle > span {
+    font-size: 1.2em; 
     font-weight: bolder;
+    text-shadow: 1px 1px #083a61; 
+    font-family: 'Montserrat Subrayada', sans-serif;
+
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
@@ -242,12 +280,14 @@ color: lightgrey;
 
 .table > thead > tr > th {
   border-bottom: 1px solid black;
+  font-weight: bold;
 }
 
 .databaseMovieTitle {
   font-size: 1em;
   letter-spacing: .05em;
   margin-bottom: 0px;
+  text-align: left !important;
 }
 
 #trailers > a > img, #reviews > a > img, #popular > a > img {
