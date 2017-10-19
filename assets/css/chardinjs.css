@@ -13,6 +13,8 @@
   position: absolute;
   z-index: 9999998;
   color: #0089f5;
+  letter-spacing: .05em;
+  font-size: 1.05em;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;

@@ -270,3 +270,9 @@ color: lightgrey;
   -moz-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
   box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
 }
+
+footer > p {
+  letter-spacing: .07em;
+  font-size: 1.1em;
+  font-weight: lighter;
+}
