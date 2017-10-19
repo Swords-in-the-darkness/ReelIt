@@ -9,6 +9,11 @@ $('#searchResults').hide();
 // Run chardinjs
 $('body').chardinJs('start');
 
+$('body').on('click', function()
+{
+  $(this).chardinJs('stop');
+});
+
 // index.html Top Movie Grid - AJAX call (TMDB)
 // =====================================================================================
 
