@@ -43,24 +43,27 @@ Future directions include expanding search criteria to categories like TV shows,
 * Firebase - monitors activity, allowing users to revisit their most recent searches.
 
 ## Additional Libraries
-* Validate.js - user input validation
-* Chardin.js - simple overlay instructions for your app 
-* Selectize.js - autocomplete dropdown search bar
-* jQuery Expandable Input Plugin v1.0 [Copyright 2014 Nattawat Nonsung](https://github.com/armmer1/expandable-input)
+* [Validate.js](https://validatejs.org/) - user input validation
+* [Chardin.js](https://heelhook.github.io/chardin.js/) - simple overlay instructions for your app 
+* [Selectize.js](https://selectize.github.io/selectize.js/) - autocomplete dropdown search bar
+* jQuery Expandable Input Plugin v1.0 (c) 2014 [Nattawat Nonsung](https://github.com/armmer1/expandable-input)
 
 
 ## Built With
 
-* [Sublime Text]
+* Sublime Text
 * [GitHub Desktop](https://desktop.github.com)
-* [Reel It - GitHub Pages](https://swords-in-the-darkness.github.io/ReelIt/)
+* [GitHub Pages -Reel It](https://swords-in-the-darkness.github.io/ReelIt/)
 
 ## Authors
 
-@ero646 (https://github.com/ero646)
-@jrapala (https://github.com/jrapala)
-@rescarra (https://github.com/rescarra)
-@vanarothorn (https://github.com/vanarothorn)
+[@ero646](https://github.com/ero646)
+
+[@jrapala](https://github.com/jrapala)
+
+[@rescarra](https://github.com/rescarra)
+
+[@vanarothorn](https://github.com/vanarothorn)
 
 
 ## Acknowledgments
