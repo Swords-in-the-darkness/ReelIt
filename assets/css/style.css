@@ -250,6 +250,23 @@ color: lightgrey;
   margin-bottom: 0px;
 }
 
-.table > tbody > tr > td {
+#trailers > a > img, #reviews > a > img, #popular > a > img {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
 
+#trailers > a, #reviews > a, #popular > a {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#trailers > a:first-child, #reviews > a:first-child, #popular > a:first-child {
+  margin-left: 0px;
+}
+
+#recentSearchResults{
+  -webkit-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
 }
