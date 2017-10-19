@@ -174,3 +174,26 @@ p {
   transform: scale(1.05);
   transition: transform .25s;
 }
+
+.playbutton {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    z-index: 1;
+    left: 40%;
+    top: -100%;
+    opacity: .7;
+}
+
+.popular {
+  position: relative;
+}
+
+.panel-primary>.panel-heading {
+    color: #0089f5;
+    background-color: #101010;
+    border-color: #337ab7;
+  }
+
+.container {
+color: lightgrey;

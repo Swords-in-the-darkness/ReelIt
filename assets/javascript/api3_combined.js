@@ -306,8 +306,9 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlPopular += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
-      htmlPopular += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
+      htmlPopular += '<a class="popular" target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlPopular += '<img src=' + items.snippet.thumbnails.medium.url + '>';
+      htmlPopular += '<img src = "assets/images/play.png" class="playbutton">'; 
       htmlPopular += '</a>';
       // console.log(items.snippet.thumbnails.default.url);
       console.log(items.id.videoId);
@@ -342,8 +343,9 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlTrailers += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlTrailers += '<a class="popular" target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlTrailers += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
+      htmlTrailers += '<img src = "assets/images/play.png" class="playbutton">';
       htmlTrailers += '</a>';
 
       //console.log(items.snippet.thumbnails.default.url);
@@ -384,8 +386,9 @@ var searchForMovie = function(movie) {
     $.each(results, function(index,items){ //for each of the results
   //debugger;
       //html += '<p>' + items.snippet.thumbnails.default.url + '</p>'; // create a new paragraph with the title
-      htmlReviews += '<a target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
+      htmlReviews += '<a class="popular" target="_blank" href=' + "https://www.youtube.com/watch?v=" + items.id.videoId + '>';
       htmlReviews += '<img src=' + items.snippet.thumbnails.medium.url + '>'; 
+      htmlReviews += '<img src = "assets/images/play.png" class="playbutton">';
       htmlReviews += '</a>';
 
       //console.log(items.snippet.thumbnails.default.url);
@@ -654,6 +657,7 @@ var iTunesSearch = function(searchTermi) {
     };
     searchProcess(query);
   });
+
 
 
   // Searching by clicking a Top 20 movie
