@@ -1,33 +1,38 @@
 $(document).ready(function(){
 
+
 // Setup Variables and Function Calls
 // =====================================================================================
 
-// Hide Search Results HTML
-$('#searchResults').hide();
+  // Hide Search Results HTML
+  $('#searchResults').hide();
 
-// Run chardinjs
-$('body').chardinJs('start');
+  // Show intructions only once
+  if (localStorage.getItem('instructionState') != 'shown'){
+      $('body').chardinJs('start');
+          localStorage.setItem('instructionState','shown');
+  }
 
-$('body').on('click', function()
-{
-  $(this).chardinJs('stop');
-});
+  // Stop showing instructions when screen is clicked
+  $('body').on('click', function()
+  {
+    $(this).chardinJs('stop');
+  });
 
 // index.html Top Movie Grid - AJAX call (TMDB)
 // =====================================================================================
 
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=e78bedc80954fdbe9d13505b16448776",
-  "method": "GET",
-  "headers": {},
-  "data": "{}"
-}
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=e78bedc80954fdbe9d13505b16448776",
+    "method": "GET",
+    "headers": {},
+    "data": "{}"
+  }
 
-$.ajax(settings).done(function (response) {
-  console.log(response.results);
+  $.ajax(settings).done(function (response) {
+    console.log(response.results);
 
 
 // index.html Populate Top Movie Grid - Image Loop
@@ -667,7 +672,6 @@ var iTunesSearch = function(searchTermi) {
 
   // Searching by clicking a Top 20 movie
   $('body').delegate(".movieTitleSearch", "click", function() {
-    $('body').chardinJs('stop');
     $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
