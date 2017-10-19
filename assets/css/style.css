@@ -231,3 +231,25 @@ color: lightgrey;
 #subtitle > span {
     font-weight: bolder;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #101010;
+}
+
+.table > tbody > tr > td {
+  border-top-color: black;
+}
+
+.table > thead > tr > th {
+  border-bottom: 1px solid black;
+}
+
+.databaseMovieTitle {
+  font-size: 1em;
+  letter-spacing: .05em;
+  margin-bottom: 0px;
+}
+
+.table > tbody > tr > td {
+
+}
