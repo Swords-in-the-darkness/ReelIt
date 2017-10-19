@@ -9,15 +9,18 @@ $(document).ready(function(){
 
   // Show intructions only once
   if (localStorage.getItem('instructionState') != 'shown'){
+    $('#movieTable').css("margin-top", "150px");
       $('body').chardinJs('start');
-          localStorage.setItem('instructionState','shown');
+      localStorage.setItem('instructionState','shown');
   }
 
   // Stop showing instructions when screen is clicked
   $('body').on('click', function()
   {
     $(this).chardinJs('stop');
+    $('#movieTable').css("margin-top", "20px");
   });
+
 
 // index.html Top Movie Grid - AJAX call (TMDB)
 // =====================================================================================
@@ -672,12 +675,7 @@ var iTunesSearch = function(searchTermi) {
 
   // Searching by clicking a Top 20 movie
   $('body').delegate(".movieTitleSearch", "click", function() {
-    $('html,body').scrollTop(0);
-    var query = $(this).attr('data-title');
-    searchProcess(query);
-  });
-
-  $('body').delegate(".movieTitleSearch", "click", function() {
+    $('body').chardinJs('stop');
     $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
