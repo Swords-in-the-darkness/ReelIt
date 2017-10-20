@@ -1,10 +1,12 @@
-# Reel It
+![alt text](assets/images/logo2.png "Reel iT")
 ### :sparkles::movie_camera: _Offering a new way to navigate the cinematic landscape_ :movie_camera::sparkles:
 
-[Reel It - Heroku](https://reel-it.herokuapp.com/)
+> [Reel It – Heroku](https://reel-it.herokuapp.com/)
+
+> [Reel It – GitHub Pages](https://swords-in-the-darkness.github.io/ReelIt/)
 
 ## Concept
-Fueled by user-generated content, _Reel It_ provides movie info that extends beyond the credits and critics. 
+Inspired by community-built databases informed by user-generated content, _Reel It_ provides movie info that extends beyond the credits and critics. 
 
 Currently, _Reel It_ allows users to search Movie Titles — rendering robust details including:
 * Plot 
@@ -18,15 +20,9 @@ Currently, _Reel It_ allows users to search Movie Titles — rendering robust de
 
 
 ## Future Directions
-Future directions include expanding search criteria to categories like TV shows, albums, podcasts, books, and more. 
-
-## Project Objectives 
-* Integrate functionaility across 2+ APIs using AJAX to pull data
-* Meet good quality coding standards
-* Polished UI
-* User input validation
-* Utilize persistent data storage
-* Mobile Responsive
+* Expand search categories to include TV shows, albums, podcasts, books, and more. 
+* Allow users to create account where they can submit reviews and provide ratings.
+* Allow users to select from an autocomplete suggestion drop-down menu of relevant and validated search criteria. 
 
 ## Technologies
 * HTML
@@ -34,23 +30,18 @@ Future directions include expanding search criteria to categories like TV shows,
 * JavaScript/jQuery
 * JSON/JSONP
 * AJAX
-* Firebase
 
-## APIs
-* TMDB The Movie Database - primary source for  movie data.
-* YouTube - providing video reviews, trending related videos, and movie trailers.
-* iTunes - providing users with the option to rent or purchase movies via iTunes.
-* Firebase - monitors activity, allowing users to revisit their most recent searches.
+### APIs & DBs
+* [TMDB](http://www.tmdb.org/) The Movie Database - primary source for  movie data.
+* [YouTube](https://developers.google.com/youtube/) - provides video reviews, trending related videos, and movie trailers.
+* [iTunes](https://www.apple.com/itunes/working-itunes/) - provides users with the option to rent or purchase movies via iTunes.
+* [Firebase](https://firebase.google.com/) - monitors activity, allows users to revisit most recent searches.
 
-## Additional Libraries
+### Additional Libraries & Build Tools
 * [Validate.js](https://validatejs.org/) - user input validation
 * [Chardin.js](https://heelhook.github.io/chardin.js/) - simple overlay instructions for your app 
-
-## Built With
-
-* Sublime Text
 * [GitHub Desktop](https://desktop.github.com)
-* [GitHub Pages -Reel It](https://swords-in-the-darkness.github.io/ReelIt/)
+* Sublime Text
 
 ## Authors
 
@@ -62,8 +53,22 @@ Future directions include expanding search criteria to categories like TV shows,
 
 [@vanarothorn](https://github.com/vanarothorn)
 
+## Acknowledgments :clap: :clap:
+* YouTube, iTunes, and TMDB for providing us with ample content and zero fuss.
+* canistream.it for directing users to sources for streaming content (legally)
+* Professors & TAs @ NU
+* Users! After all, this app was designed for ya'll
 
-## Acknowledgments
+_**Reel It was created to meet the following objectives, as delineated for Project 1**_
+* Integrate functionaility across 2+ APIs using AJAX to pull data 
+* Meet good quality coding standards 
+* Polished UI 
+* User input validation 
+* Utilize persistent data storage 
+* Mobile responsive
 
-* YouTube, iTunes, and TMDB for providing us with ample content and zero fuss
-* Users! After all, this app was designed for ya'll :)
+
+
+
+> _**Disclaimer:** While this project uses TMDb, YouTube, and iTunes APIs, it is not endorsed or certified by TMDb, YouTube, or iTunes._
+
