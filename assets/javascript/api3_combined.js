@@ -87,6 +87,9 @@ $(document).ready(function(){
 // =====================================================================================
 
 var searchForMovie = function(movie) {
+  $('#movieTitle').focus(function() {
+      $(this).val('');
+  });
   $('#movieTable').hide();
   $('#searchResults').show();
   $("#firstPage").hide();
@@ -651,15 +654,16 @@ var iTunesSearch = function(searchTermi) {
 // Click Functions
 // =====================================================================================
 
+  // Five functions are run to create a search result page
   var searchProcess = function(query) {
       searchForMovie(query);
       reviewsGetRequest(query);
       popularGetRequest(query);
       trailersGetRequest(query);
       iTunesSearch(query);
-    };
+  };
 
-  // Searching by clicking the sumbit button
+  // Clicking the submit button runs a search
   $("#submitButton").on("click", function(event) {
     event.preventDefault();
     $('body').chardinJs('stop');
@@ -671,9 +675,7 @@ var iTunesSearch = function(searchTermi) {
     searchProcess(query);
   });
 
-
-
-  // Searching by clicking a Top 20 movie
+  // Clicking a Top 20 movie runs a search
   $('body').delegate(".movieTitleSearch", "click", function() {
     $('body').chardinJs('stop');
     $('html,body').scrollTop(0);
@@ -681,12 +683,14 @@ var iTunesSearch = function(searchTermi) {
     searchProcess(query);
   });
 
+  // Clicking a Recent Search movie title runs a search
   $('body').delegate(".databaseMovieTitle", "click", function() {
     $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
     searchProcess(query);
   });
 
+  // Clicking a recommended movie button runs a search
   $('body').delegate(".recommendedButton", "click", function() {
     $('html,body').scrollTop(0);
     var query = $(this).attr('data-title');
