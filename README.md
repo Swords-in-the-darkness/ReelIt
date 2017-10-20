@@ -30,7 +30,7 @@ Future directions include expanding search criteria to categories like TV shows,
 
 ## Technologies
 * HTML
-* CSS (Bootstrap, font-awesome, google fonts)
+* CSS (Bootstrap, Google Fonts)
 * JavaScript/jQuery
 * JSON/JSONP
 * AJAX
@@ -45,9 +45,6 @@ Future directions include expanding search criteria to categories like TV shows,
 ## Additional Libraries
 * [Validate.js](https://validatejs.org/) - user input validation
 * [Chardin.js](https://heelhook.github.io/chardin.js/) - simple overlay instructions for your app 
-* [Selectize.js](https://selectize.github.io/selectize.js/) - autocomplete dropdown search bar
-* jQuery Expandable Input Plugin v1.0 (c) 2014 [Nattawat Nonsung](https://github.com/armmer1/expandable-input)
-
 
 ## Built With
 
