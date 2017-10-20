@@ -125,7 +125,7 @@ p {
       width: 500px;
       max-height:550px;
     }
- .btn{
+ .btn {
       margin:2px;
       border: 1px solid black;
     }
@@ -150,15 +150,16 @@ p {
  .btn-warning {
     background-color: #5cb85c;
 }
-.btn, .btn-primary{
+.btn, .btn-default, .btn-primary{
   background-color: #0089f5;
   border-radius: 10px;
+  margin:2px;
+  border: 1px solid black;
 }
-.btn-primary:hover{
-  background-color: #0089f5;
+.btn-primary:hover, .btn-default:hover, .btn:hover{
+  background-color: gainsboro;
   border-radius: 10px;
-  color: white;
-  text-shadow: 1px 1px black;
+  color: black;
 }
 .logo {
     margin: 2px;
