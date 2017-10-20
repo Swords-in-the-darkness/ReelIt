@@ -108,22 +108,15 @@ var searchForMovie = function(movie) {
   }
 
   $.ajax(setting).done(function (response) {
-    //console.log(response);
-
 
   // Generate Movie Div
     var movieDiv = $("<div class='movie'>");
 
-  // Movie ID
-    //console.log("ID: " + movieID);
-
   // Movie URL (through TMDB)
     var movieURL = settings.url;
-    // console.log("movieURL: " + movieURL);
 
   // Movie Title
     var title = response.title;
-    // console.log("title: " + title);
     var movieTitleDisplay = $("<h2>").text(title);
     $(".movieDivTitle").html(movieTitleDisplay);
 
@@ -170,7 +163,6 @@ var searchForMovie = function(movie) {
     movieHomepage.attr("target", "_blank");
     movieHomepage.attr("role", "button");
     movieHomepage.addClass("btn btn-warning btn-md btn-webpage");
-    // console.log(movieHomepage);
     $(".movieDivHomepage").html(movieHomepage.href);
 
 
@@ -208,18 +200,14 @@ var searchForMovie = function(movie) {
       //var movieRecStream = ("https://www.fan.tv/movies/" + movieRecID);
       movieRec.addClass("btn btn-recom btn-sm btn-default recommendedButton");
       movieRec.attr("role", "button");
-      //movieRec.attr("target", "_blank");
       movieRec.attr('data-title', response.recommendations.results[i].title);
-      //movieRec.attr("href", movieRecURL);
       movieRec.text(movieRecTitle);
      $(".movieDivRecs").append(movieRec);
    }; 
 
   // Cast
     var castMainList = response.credits.cast;
-    //console.log("Cast arr length: " + castMainList.length);
     var castTrim = (castMainList.length * 0) + 4;
-    //console.log("Cast trim: " + castTrim);
       
     for(var j = 0; j < 4; j++){
       var castDiv = $("<div>");
@@ -249,7 +237,6 @@ var searchForMovie = function(movie) {
       (thumbnailDisplay).append(captionDisplay);
 
       (castDiv).html(thumbnailDisplay)
-      // .append(captionDisplay);
       $(".castMain").append(castDiv);
     };
 
@@ -428,7 +415,6 @@ var iTunesSearch = function(searchTermiTunes) {
             newMovieDivDisplay.append(directorDiv);
             newMovieDivDisplay.append(linkDiv);
 
-            // $('#movieResults').append(newMovieDivDisplay);
             $(".moviePurchase").append(linkDiv);
             $(".director").append(directorDiv);
             $(".ratingFCC").html(itunesRatingDiv);
@@ -451,16 +437,13 @@ var iTunesSearch = function(searchTermiTunes) {
       var $movieNameCell = $('<td>');
       var $releaseDateCell = $('<td>');
 
-
       // Movie name cell
-
       var currentMovieTitle = childSnapshot.val().movieName;
       var $movieNameContents = $('<p>');
       $movieNameContents.attr('class', 'databaseMovieTitle');
       $movieNameContents.attr('data-title', currentMovieTitle);
       $movieNameContents.html(currentMovieTitle);
       $movieNameCell.html($movieNameContents);
-
       $movieRow.append($movieNameCell);
 
       // Release date cell
@@ -468,7 +451,7 @@ var iTunesSearch = function(searchTermiTunes) {
       $movieRow.append($releaseDateCell);
 
       // Add row to table
-        $("#moviesGoHere").prepend($movieRow);
+      $("#moviesGoHere").prepend($movieRow);
 
     // Handle the errors
     }, function(errorObject) {
