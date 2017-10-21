@@ -1,6 +1,6 @@
 .chardinjs-overlay {
   position: absolute;
-  z-index: 999999;
+  z-index: 999;
   background-color: #000;
   opacity: 0;
   -webkit-transition: all 0.3s ease-out;
