@@ -38,7 +38,7 @@ Currently, _Reel It_ allows users to search Movie Titles — rendering robust de
 * [Firebase](https://firebase.google.com/) - monitors activity, allows users to revisit most recent searches.
 
 ### Additional Libraries & Build Tools
-* [Validate.js](https://validatejs.org/) - user input validation
+* [Moment.js](https://momentjs.com/) - converting time into user-friendly formats
 * [Chardin.js](https://heelhook.github.io/chardin.js/) - simple overlay instructions for your app 
 * [GitHub Desktop](https://desktop.github.com)
 * Sublime Text
