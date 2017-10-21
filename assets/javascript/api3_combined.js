@@ -47,10 +47,9 @@ $(document).ready(function(){
       topMovieImg.attr('data-title', response.results[i].title);
       topMovieImg.attr('class', 'movieTitleSearch');
       topMovieImg.css({margin:'10px', align:'center', display:'inline', height: '350px', width:'250px'});
-      //console.log(topMovieImg)
       $('#movieGrid').append(topMovieImg);
     };
-});
+  });
 
 // Initalize Firebase Database
 // =====================================================================================
@@ -150,7 +149,6 @@ var searchForMovie = function(movie) {
     movieStream.text("Streaming Here");
    $(".movieDivStream").html(movieStream);
      
-
   // Movie Plot
     var plot = response.overview;
     var moviePlotDisplay = $("<p>").text(plot);
@@ -165,8 +163,7 @@ var searchForMovie = function(movie) {
     movieHomepage.addClass("btn btn-warning btn-md btn-webpage");
     $(".movieDivHomepage").html(movieHomepage.href);
 
-
-   //  Movie Genres
+  //  Movie Genres
     var genreList = response.genres;
     for(var i = 0; i < genreList.length; i++){
       var movieGenre = $("<a>");
@@ -179,7 +176,7 @@ var searchForMovie = function(movie) {
       movieGenre.attr("href", movieGenreURL);
       movieGenre.text(movieGenreName);
       $(".movieDivGenre").append(movieGenre);
-   }; 
+    }; 
 
 
   // Movie Image (poster or backdrop)
@@ -203,7 +200,7 @@ var searchForMovie = function(movie) {
       movieRec.attr('data-title', response.recommendations.results[i].title);
       movieRec.text(movieRecTitle);
      $(".movieDivRecs").append(movieRec);
-   }; 
+    }; 
 
   // Cast
     var castMainList = response.credits.cast;
@@ -213,7 +210,6 @@ var searchForMovie = function(movie) {
       var castDiv = $("<div>");
       castDiv.addClass("castDiv col-xs-6 col-md-3 text-center");
       cast_idj = $(this).val(response.credits.cast[j]);
-      // castDiv.attr("data-name",response.credits.cast[j])
       var headshotURL = "https://image.tmdb.org/t/p/w185/" + response.credits.cast[j].profile_path;
       var headshot = $("<img>").attr("src", headshotURL);
       headshot.addClass("img-responsive");
@@ -227,16 +223,16 @@ var searchForMovie = function(movie) {
       var actorInfo = $("<a>");
       var actorID = response.credits.cast[j].id;
       var actorURL = ("https://www.themoviedb.org/person/" + actorID);
-        actorInfo.addClass("btn btn-recom btn-xs btn-default");
-        actorInfo.attr("role", "button");
-        actorInfo.attr("target", "_blank");
-        actorInfo.attr("href", actorURL);
-        actorInfo.text("More"); 
+      actorInfo.addClass("btn btn-recom btn-xs btn-default");
+      actorInfo.attr("role", "button");
+      actorInfo.attr("target", "_blank");
+      actorInfo.attr("href", actorURL);
+      actorInfo.text("More"); 
       
       var captionDisplay = $("<div class='caption'>").html(actorNameDisplay).append(actorCharacterDisplay).append(actorInfo);
-      (thumbnailDisplay).append(captionDisplay);
+      thumbnailDisplay.append(captionDisplay);
 
-      (castDiv).html(thumbnailDisplay)
+      castDiv.html(thumbnailDisplay)
       $(".castMain").append(castDiv);
     };
 
@@ -296,7 +292,6 @@ var searchForMovie = function(movie) {
   function trailersGetRequest(searchTerm){
     var userQuery = searchTerm + "trailer";
 
-    //alert(typeof(userQuery));
     var params = {
       part: 'snippet',
       key: 'AIzaSyAUqswQE4ND2epzoyNKkS9_CX_QxTK6ILs',
@@ -364,8 +359,8 @@ var searchForMovie = function(movie) {
 // iTunes API | Functions
 // =====================================================================================
 
-// Search movie in the iTunes API, display the director, and a link to the movie if it is available on iTunes
-var iTunesSearch = function(searchTermiTunes) {
+  // Search movie in the iTunes API, display the director, and a link to the movie if it is available on iTunes
+  var iTunesSearch = function(searchTermiTunes) {
 
     $(".moviePurchase").empty();
     $(".director").empty();
@@ -374,88 +369,88 @@ var iTunesSearch = function(searchTermiTunes) {
 
     $('#movieResults').empty();
     
-      // Performing an AJAX request with the queryURL
-      $.ajax({
-          url: queryURLiTunes,
-          method: "GET",
-          dataType: "jsonp"
-        })
-      .done(function(data) {
+    // Performing an AJAX request with the queryURL
+    $.ajax({
+        url: queryURLiTunes,
+        method: "GET",
+        dataType: "jsonp"
+      })
+    .done(function(data) {
 
-          var requestData = data.results;
-        
-          for (var i = 0; i<requestData.length; i++){
+        var requestData = data.results;
+      
+        for (var i = 0; i<requestData.length; i++){
 
-            // Storing callback result into variables
-            var itunesMovieTitle = requestData[i].trackCensoredName;
-            var itunesMovieImage = requestData[i].artworkUrl100;
-            var itunesMovieDirector = requestData[i].artistName;
-            var itunesMovieRating = requestData[i].contentAdvisoryRating;
-            var itunesMovieDescription = requestData[i].longDescription;
-            var mainItunesLink = requestData[i].trackViewUrl;
+          // Storing callback result into variables
+          var itunesMovieTitle = requestData[i].trackCensoredName;
+          var itunesMovieImage = requestData[i].artworkUrl100;
+          var itunesMovieDirector = requestData[i].artistName;
+          var itunesMovieRating = requestData[i].contentAdvisoryRating;
+          var itunesMovieDescription = requestData[i].longDescription;
+          var mainItunesLink = requestData[i].trackViewUrl;
 
-            // Creating a div that displays images, movie title, trailer, rating etc
-            var newMovieDivDisplay = $('<div class="htmlMovieDisplay">');
-            var movieImageFile = $('<img class="imageFile">');
+          // Creating a div that displays images, movie title, trailer, rating etc
+          var newMovieDivDisplay = $('<div class="htmlMovieDisplay">');
+          var movieImageFile = $('<img class="imageFile">');
 
-            movieImageFile.attr('src', itunesMovieImage);
+          movieImageFile.attr('src', itunesMovieImage);
 
-            var itunesRatingDiv = $('<p>');
-            itunesRatingDiv.html("Rated: " + itunesMovieRating);
-    
-            var directorDiv = $('<p>');
-            directorDiv.append(itunesMovieDirector);
+          var itunesRatingDiv = $('<p>');
+          itunesRatingDiv.html("Rated: " + itunesMovieRating);
+  
+          var directorDiv = $('<p>');
+          directorDiv.append(itunesMovieDirector);
 
-            var linkDiv = $('<a>').attr('href', mainItunesLink).attr("target", "_blank").text('View in iTunes');
-            linkDiv.addClass("btn btn-sm btn-primary btn-itunes");
-            linkDiv.attr("role", "button");
+          var linkDiv = $('<a>').attr('href', mainItunesLink).attr("target", "_blank").text('View in iTunes');
+          linkDiv.addClass("btn btn-sm btn-primary btn-itunes");
+          linkDiv.attr("role", "button");
 
-            // Appending movie div into Search Results page
-            newMovieDivDisplay.append(itunesRatingDiv);
-            newMovieDivDisplay.append(directorDiv);
-            newMovieDivDisplay.append(linkDiv);
+          // Appending movie div into Search Results page
+          newMovieDivDisplay.append(itunesRatingDiv);
+          newMovieDivDisplay.append(directorDiv);
+          newMovieDivDisplay.append(linkDiv);
 
-            $(".moviePurchase").append(linkDiv);
-            $(".director").append(directorDiv);
-            $(".ratingFCC").html(itunesRatingDiv);
-           }
+          $(".moviePurchase").append(linkDiv);
+          $(".director").append(directorDiv);
+          $(".ratingFCC").html(itunesRatingDiv);
+         }
                
-        // end of ajax call
-       });
-      };   
+    // end of ajax call
+    });
+  };   
 
 // Firebase Main Processes 
 // =====================================================================================
 
-// Firebase watcher + initial loader 
-    database.ref().orderByChild('dateAdded').limitToLast(10).on("child_added", function(childSnapshot) {
+  // Firebase watcher + initial loader 
+  database.ref().orderByChild('dateAdded').limitToLast(10).on("child_added", function(childSnapshot) {
 
-      // Create row
-      var $movieRow = $('<tr>');
+    // Create row
+    var $movieRow = $('<tr>');
 
-      // Create cells
-      var $movieNameCell = $('<td>');
-      var $releaseDateCell = $('<td>');
+    // Create cells
+    var $movieNameCell = $('<td>');
+    var $releaseDateCell = $('<td>');
 
-      // Movie name cell
-      var currentMovieTitle = childSnapshot.val().movieName;
-      var $movieNameContents = $('<p>');
-      $movieNameContents.attr('class', 'databaseMovieTitle');
-      $movieNameContents.attr('data-title', currentMovieTitle);
-      $movieNameContents.html(currentMovieTitle);
-      $movieNameCell.html($movieNameContents);
-      $movieRow.append($movieNameCell);
+    // Movie name cell
+    var currentMovieTitle = childSnapshot.val().movieName;
+    var $movieNameContents = $('<p>');
+    $movieNameContents.attr('class', 'databaseMovieTitle');
+    $movieNameContents.attr('data-title', currentMovieTitle);
+    $movieNameContents.html(currentMovieTitle);
+    $movieNameCell.html($movieNameContents);
+    $movieRow.append($movieNameCell);
 
-      // Release date cell
-      $releaseDateCell.html(childSnapshot.val().releaseDate);
-      $movieRow.append($releaseDateCell);
+    // Release date cell
+    $releaseDateCell.html(childSnapshot.val().releaseDate);
+    $movieRow.append($releaseDateCell);
 
-      // Add row to table
-      $("#moviesGoHere").prepend($movieRow);
+    // Add row to table
+    $("#moviesGoHere").prepend($movieRow);
 
-    // Handle the errors
-    }, function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
+  // Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
     });
 
 
@@ -464,11 +459,11 @@ var iTunesSearch = function(searchTermiTunes) {
 
   // Five functions are run to create a search result page
   var searchProcess = function(query) {
-      searchForMovie(query);
-      reviewsGetRequest(query);
-      popularGetRequest(query);
-      trailersGetRequest(query);
-      iTunesSearch(query);
+    searchForMovie(query);
+    reviewsGetRequest(query);
+    popularGetRequest(query);
+    trailersGetRequest(query);
+    iTunesSearch(query);
   };
 
   // Clicking the submit button runs a search
