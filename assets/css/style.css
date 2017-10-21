@@ -1,110 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Montserrat+Subrayada');
 /**** Global Styles  ****/
-body{
-font-family: 'Montserrat', sans-serif;
-}
+
+/* Fonts & Colors */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Montserrat+Subrayada');
 
 html {
   font-size: 16px;
 }
 
-#movieTable {
-  margin-top: 20px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #282d38;
 }
 
-.panel.panel-primary{
-    background-color: rgba(16,16,16,.4);
-}
-
-.panel-default{
-    background: rgba(16,16,16,.6);
-    border-color: #101010;
-}
-.panel-default .panel-heading{
-    background: #101010;
-    color: white;
-}
-.panel-default .panel-body{
-    background-color: rgba(16,16,16,.4);
-    color: snow;
-
-}
-
-.panel-heading{
-font-family: 'Montserrat', sans-serif;
-text-transform: uppercase;
-letter-spacing: .09em;
-font-weight: bold;
-}
-.container-fluid {
-  color: snow;
-}
-
-.thumbnail {
-  background-color: #101010;
-  border-color: #101010;
-}
-.thumbnail .caption {
-  color: snow;
-}
-
-hr {
-    margin-top: 100px;
-    }
-
-.h2, h2, h3{
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-   }
-
- .progress {
-  border: 1px solid black;
- }
-
- .btn-default {
-  background-color: #337ab7;
-  color: snow;
- }
-
-.col-sm-4 {
-    background-color: #101010;
-    border-radius: 12px;
-}
 p {
   text-align: center;
 }
 
-  /* Navbar */
-  .navbar-form {
-      border-color: black;
-      background-color: #101010;
-     }
-  .navbar-inverse {
-      background-color: #101010;
-      border-color: black;
-  }
-
-  #submitButton {
-    letter-spacing: .09em;
-  }
-  a#submitButton{
-    border:1px solid #0089f5;
-    color: #0089f5;
-    background-color: #101010;
-    letter-spacing: .09em;
-  }
-
-  a#submitButton:hover{
-    border:1px solid #0089f5;
-    color: #0089f5;
-    text-shadow: 1px snow;
-    background-color: #282d38; 
-  }
-#movies-view {
-    border: #282d38;
+h2, h2, h3 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
 #movieDivTitle {
@@ -112,146 +29,138 @@ p {
   font-size: 50px;
 }
 
- body {
-
-      background-color: #282d38;
-  }
-    /* Add a gray background color and some padding to the footer */
- footer {
-      background-color: #101010;
-      padding: 25px;
-    }
- #movies-view{
-      width: 500px;
-      max-height:550px;
-    }
- .btn {
-      margin:2px;
-      border: 1px solid black;
-    }
- .side{
-      display: inline-grid;
-      float: right;
-      margin: 10px;
-    }
- .main-content{
-      margin: 10px;
-    }
- .panel-heading{
-    font-size: 15px;
-    font-weight:bold;
-
-    }
- img{
-      margin: 2px;
-      border-radius: 5px;
-    }
-
- .btn-warning {
-    background-color: #5cb85c;
+hr {
+    margin-top: 100px;
 }
+
+.container-fluid {
+  color: snow;
+}
+
+.col-sm-4 {
+  background-color: #101010;
+  border-radius: 12px;
+}
+
+/**** Panels ****/
+
+.panel.panel-primary{
+  background-color: rgba(16,16,16,.4);
+}
+
+.panel-default{
+  background: rgba(16,16,16,.6);
+  border-color: #101010;
+}
+
+.panel-default .panel-heading{
+  background: #101010;
+  color: white;
+}
+
+.panel-default .panel-body{
+  background-color: rgba(16,16,16,.4);
+  color: snow;
+}
+
+.panel-heading{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/**** Cast ****/
+
+.thumbnail {
+  background-color: #101010;
+  border-color: #101010;
+}
+
+.thumbnail .caption {
+  color: snow;
+}
+
+/**** Progress Bar ****/
+
+.progress {
+  border: 1px solid black;
+}
+
+/**** Buttons ****/
+
+.btn-default {
+  background-color: #337ab7;
+  color: snow;
+}
+
+#submitButton {
+  letter-spacing: .09em;
+}
+
+a#submitButton{
+  border:1px solid #0089f5;
+  color: #0089f5;
+  background-color: #101010;
+  letter-spacing: .09em;
+}
+
+a#submitButton:hover{
+  border:1px solid #0089f5;
+  color: #0089f5;
+  text-shadow: 1px snow;
+  background-color: #282d38; 
+}
+
+.btn {
+    margin:2px;
+    border: 1px solid black;
+}
+
+.btn-warning {
+  background-color: #5cb85c;
+}
+
 .btn, .btn-default, .btn-primary{
   background-color: #0089f5;
   border-radius: 10px;
   margin:2px;
   border: 1px solid black;
 }
+
 .btn-primary:hover, .btn-default:hover, .btn:hover{
   background-color: gainsboro;
   border-radius: 10px;
   color: black;
 }
-.logo {
-    margin: 2px;
-    border-radius: 5px;
-    height: 55px;
-    width: 55px;
-    margin-top: -15px;
+
+/**** Navbar ****/
+
+.navbar-form {
+  border-color: black;
+  background-color: #101010;
 }
 
-/**** Firebase Table Styling ****/
-
-    /* Stars */
-/*    .fa-star {
-      color: yellow;
-    }
-
-    .fa {
-      font-size: 20px;
-      padding-left: 15px;
-    }
-*/
-  /* Table Margins */
-  #movieTable, #recentSearchResults {
-    margin-bottom: 20px;
-  }
-
-  .well-lg {
-      padding: 18px;
-      border-radius: 0px;
+.navbar-inverse {
+  background-color: #101010;
+  border-color: black;
 }
 
-/**** Cursors ****/
-
-.movieTitleSearch:hover, .databaseMovieTitle:hover {
-  cursor:pointer;
+.well-lg {
+  padding: 18px;
+  border-radius: 0px;
 }
 
-.movieTitleSearch, .img-responsive {
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+.navbar-default { 
+  box-shadow: 1px 1px 1px black !important;
 }
 
-.movieTitleSearch:hover {
-  transform: scale(1.05);
-  transition: transform .25s;
-}
-
-.playbutton {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    z-index: 1;
-    left: 40%;
-    top: -100%;
-    opacity: .7;
-}
-
-.popular {
-  position: relative;
-}
-
-.panel-primary>.panel-heading {
-    color: #0089f5;
-    background-color: #101010;
-    border-color: #337ab7;
-  }
-
-.container {
-color: lightgrey;
-}
-
-.panelSearches{
-  border-color: #101010;
-  text-align: left !important; 
-}
-
-.td {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  text-align: left !important; 
-
-}
 th, h5{
   font-weight: bolder;
   text-transform: uppercase;
   text-shadow: 1px 1px black; 
   color: #0089f5; 
-
-}
-.navbar-default { 
-  box-shadow: 1px 1px 1px black !important;
 }
 
 #subtitle {
@@ -268,7 +177,77 @@ th, h5{
     font-weight: bolder;
     text-shadow: 1px 1px #083a61; 
     font-family: 'Montserrat Subrayada', sans-serif;
+}
 
+/**** Poster ****/
+
+#movies-view {
+  border: #282d38;
+}
+
+/**** Footer ****/
+
+footer {
+    background-color: #101010;
+    padding: 25px;
+}
+
+footer > p {
+  letter-spacing: .07em;
+  font-size: 1.1em;
+  font-weight: lighter;
+}
+
+/**** Poster ****/
+
+#movies-view{
+  width: 500px;
+  max-height:550px;
+}
+
+/**** Search Results ****/
+
+.main-content {
+  margin: 10px;
+}
+
+/**** Side Panel ****/
+
+.side {
+  display: inline-grid;
+  float: right;
+  margin: 10px;
+}
+
+/**** Images ****/
+
+img {
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.logo {
+  margin: 2px;
+  border-radius: 5px;
+  height: 55px;
+  width: 55px;
+  margin-top: -15px;
+}
+
+/**** Firebase Table Styling ****/
+
+#movieTable {
+  margin-top: 20px;
+}
+
+#movieTable, #recentSearchResults {
+  margin-bottom: 20px;
+}
+
+.panelSearches{
+  -webkit-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
@@ -291,10 +270,69 @@ th, h5{
   text-align: left !important;
 }
 
+.td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left !important; 
+}
+
+/**** Cursors ****/
+
+.movieTitleSearch:hover, .databaseMovieTitle:hover {
+  cursor:pointer;
+}
+
+/**** Drop Shadows ****/
+
+.movieTitleSearch, .img-responsive {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+/**** Top 20 Movie Image Hover Effects ****/
+
+.movieTitleSearch:hover {
+  transform: scale(1.05);
+  transition: transform .25s;
+}
+
+/**** YouTube Videos ****/
+
+.playbutton {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  z-index: 1;
+  left: 40%;
+  top: -100%;
+  opacity: .7;
+}
+
+.popular {
+  position: relative;
+}
+
+.panel-primary>.panel-heading {
+    color: #0089f5;
+    background-color: #101010;
+    border-color: #337ab7;
+}
+
+.container {
+  color: lightgrey;
+}
+
+.panelSearches{
+  border-color: #101010;
+  text-align: left !important; 
+}
+
 #trailers > a > img, #reviews > a > img, #popular > a > img {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-top: 10px;
 }
 
 #trailers > a, #reviews > a, #popular > a {
@@ -304,16 +342,4 @@ th, h5{
 
 #trailers > a:first-child, #reviews > a:first-child, #popular > a:first-child {
   margin-left: 0px;
-}
-
-#recentSearchResults{
-  -webkit-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
-  box-shadow: 5px 5px 2.5px 0px rgba(0,0,0,0.75);
-}
-
-footer > p {
-  letter-spacing: .07em;
-  font-size: 1.1em;
-  font-weight: lighter;
 }
