@@ -211,6 +211,13 @@ var searchForMovie = function(movie) {
       castDiv.addClass("castDiv col-xs-6 col-md-3 text-center");
       cast_idj = $(this).val(response.credits.cast[j]);
       var headshotURL = "https://image.tmdb.org/t/p/w185/" + response.credits.cast[j].profile_path;
+      
+      // If headshot does not exist, replace with a placeholder image
+      var re = new RegExp("['null']$");
+      if (re.test(headshotURL)) {
+        headshotURL = 'assets/images/castPlaceholder.png';
+      }
+
       var headshot = $("<img>").attr("src", headshotURL);
       headshot.addClass("img-responsive");
       var thumbnailDisplay = $("<div class='thumbnail'>").html(headshot);
